@@ -347,16 +347,17 @@ hr {
 
 .reference-social-links {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 4px;
+    flex-wrap: wrap;
+    gap: 8px;
     margin: 0;
     font-weight: bold;
 }
 
 .reference-social-links span {
-    display: none;
+    display: inline;
 }
 
 .resume-contact-block {
