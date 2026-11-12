@@ -330,6 +330,35 @@ hr {
     margin-bottom: 28px;
 }
 
+.reference-links,
+.resume-contact-block {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 14px 0;
+    border-top: 1px solid rgba(220, 230, 235, 0.65);
+    border-bottom: 1px solid rgba(220, 230, 235, 0.65);
+    text-align: center;
+}
+
+.reference-links .resume-link,
+.resume-contact-block .resume-link {
+    margin: 0 0 6px;
+}
+
+.reference-social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.resume-contact-block {
+    margin-bottom: 28px;
+}
+
 .timeline {
     max-width: 390px;
     margin: 0 auto;
