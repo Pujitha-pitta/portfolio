@@ -1,4 +1,4 @@
-﻿/* Basic setup */
+/* Basic setup */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -347,12 +347,16 @@ hr {
 
 .reference-social-links {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
+    gap: 4px;
     margin: 0;
     font-weight: bold;
+}
+
+.reference-social-links span {
+    display: none;
 }
 
 .resume-contact-block {
