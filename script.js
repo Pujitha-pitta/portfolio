@@ -181,7 +181,7 @@ const projects = [
         title: "Radar — Team 8",
         description: "A virtual science park for Blue Science Park. Radar helps companies discover relevant funding, events, testbeds, and partners using evidence-backed profiles and AI agents.",
         tags: ["AI Agents", "Python", "TypeScript", "BUILD Hackathon 2026"],
-        github: "https://github.com/thar-26/Team_08_RADAR"
+        github: "https://github.com/Pujitha-pitta/Team_08_RADAR"
     }
 ];
 
