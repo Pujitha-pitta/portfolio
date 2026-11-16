@@ -1357,3 +1357,190 @@ nav a:hover {
     .enter-world-button:hover { transform: none; }
 }
 
+/* The title screen shows only the entrance button until the visitor enters. */
+html.entry-lock, html.entry-lock body { width: 100%; height: 100%; overflow: hidden; }
+html.entry-lock .portfolio-world { display: none; }
+.academy-gate {
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    min-height: 100svh;
+    padding: 24px;
+    background:
+        linear-gradient(180deg, rgba(8, 7, 12, 0.26), rgba(8, 7, 12, 0.38) 42%, rgba(7, 6, 10, 0.8)),
+        linear-gradient(90deg, rgba(10, 8, 15, 0.35), transparent 52%, rgba(10, 8, 15, 0.38)),
+        url("images/nevermore-castle.svg") center / cover no-repeat,
+        #09080d;
+}
+
+.academy-gate::before {
+    content: "";
+    position: absolute;
+    inset: 16px;
+    border: 1px solid rgba(231, 223, 239, 0.32);
+    border-radius: 5px;
+    box-shadow: inset 0 0 90px rgba(11, 8, 16, 0.25);
+    pointer-events: none;
+}
+
+.academy-gate .enter-world-button {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    min-width: 240px;
+    padding: 16px 26px;
+    backdrop-filter: blur(7px);
+}
+
+html:not(.entry-lock) .academy-gate { display: none; }
+
+.portfolio-world {
+    animation: world-arrive 700ms ease both;
+}
+
+@keyframes world-arrive {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Skills are presented as a curated cabinet of labelled specimens. */
+.skills-showcase {
+    position: relative;
+    border-radius: 5px;
+    border-color: rgba(191, 166, 133, 0.43);
+    background:
+        linear-gradient(135deg, rgba(57, 42, 48, 0.44), rgba(17, 13, 20, 0.96)),
+        repeating-linear-gradient(0deg, transparent 0 37px, rgba(188, 165, 137, 0.035) 38px 39px);
+    box-shadow: inset 0 0 0 5px rgba(191, 166, 133, 0.035), 0 18px 42px rgba(0, 0, 0, 0.32);
+}
+
+.skills-showcase-heading {
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(191, 166, 133, 0.27);
+}
+
+.skills-kicker { color: #c7b69e; }
+.skills-orbit { color: #c7b69e; }
+
+.skills-board { counter-reset: specimen; }
+
+.skill-tile {
+    position: relative;
+    counter-increment: specimen;
+    min-height: 116px;
+    border-radius: 4px;
+    border-color: rgba(191, 166, 133, 0.25);
+    background: linear-gradient(145deg, rgba(39, 31, 38, 0.96), rgba(16, 13, 19, 0.98));
+}
+
+.skill-tile::after {
+    content: "SPECIMEN " counter(specimen, decimal-leading-zero);
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: rgba(211, 192, 167, 0.62);
+    font-size: 0.48rem;
+    letter-spacing: 0.08em;
+}
+
+.skill-symbol {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid color-mix(in srgb, var(--tile-color) 48%, transparent);
+    border-radius: 50%;
+    color: #e0d0b6;
+    font-family: Georgia, serif;
+    font-size: 1.1rem;
+    letter-spacing: 0;
+    background: radial-gradient(circle, color-mix(in srgb, var(--tile-color) 20%, #1b1420), #110e15);
+}
+
+.skill-kind { color: #b6a58e; }
+.skills-legend i { background: #bca88b !important; }
+
+/* Publications become numbered, leather-bound research volumes. */
+main:has(#publications) { counter-reset: volume; }
+
+.publication-item {
+    position: relative;
+    counter-increment: volume;
+    overflow: hidden;
+    margin: 16px 0;
+    padding: 22px 22px 20px 34px;
+    border: 1px solid rgba(192, 174, 143, 0.3);
+    border-left: 12px solid #453247;
+    border-radius: 4px 10px 10px 4px;
+    background:
+        linear-gradient(90deg, rgba(139, 111, 77, 0.12), transparent 20%),
+        repeating-linear-gradient(180deg, rgba(231, 220, 199, 0.035) 0 1px, transparent 1px 5px),
+        linear-gradient(120deg, rgba(47, 36, 42, 0.98), rgba(18, 14, 20, 0.98));
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28), inset 3px 0 0 rgba(218, 195, 158, 0.12);
+}
+
+.publication-item::before {
+    content: "VOL. " counter(volume, decimal-leading-zero);
+    position: absolute;
+    top: 16px;
+    bottom: 16px;
+    left: -10px;
+    display: grid;
+    place-items: center;
+    color: #e0cba7;
+    font-family: Georgia, serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+.publication-item h3 { color: #eee6d9; }
+.publication-item a { color: #d7c09d; }
+
+/* Project entries read like classified case files from the archive. */
+.project-list { counter-reset: casefile; }
+
+.project-card {
+    position: relative;
+    counter-increment: casefile;
+    margin: 13px 0;
+    padding: 20px 21px 18px;
+    border: 1px solid rgba(169, 155, 190, 0.24);
+    border-left: 3px solid #75647f;
+    border-radius: 3px 10px 10px 3px;
+    background: linear-gradient(120deg, rgba(36, 28, 40, 0.95), rgba(14, 12, 18, 0.96));
+}
+
+.project-card::before {
+    content: "ARCHIVE FILE  /  " counter(casefile, decimal-leading-zero);
+    display: block;
+    margin-bottom: 7px;
+    color: #aa9bb4;
+    font-size: 0.6rem;
+    letter-spacing: 0.17em;
+}
+
+.achievement-section::after {
+    content: "✦";
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    color: #d0b988;
+    font-size: 1.35rem;
+    text-shadow: 0 0 16px rgba(208, 185, 136, 0.45);
+}
+
+@media (max-width: 600px) {
+    .academy-gate { background-position: 52% center; }
+    .academy-gate::before { inset: 9px; }
+    .publication-item { padding: 19px 14px 18px 29px; }
+    .project-card { padding: 17px 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .portfolio-world { animation: none; }
+}
+
