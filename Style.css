@@ -1357,9 +1357,10 @@ nav a:hover {
     .enter-world-button:hover { transform: none; }
 }
 
-/* The title screen shows only the entrance button until the visitor enters. */
-html.entry-lock, html.entry-lock body { width: 100%; height: 100%; overflow: hidden; }
-html.entry-lock .portfolio-world { display: none; }
+/* The title screen uses a native anchor, so entry works without JavaScript. */
+.theme-home .portfolio-world { display: none; }
+.theme-home .portfolio-world:target { display: block; }
+.theme-home .academy-gate:has(+ .portfolio-world:target) { display: none; }
 .academy-gate {
     position: fixed;
     z-index: 1000;
@@ -1394,7 +1395,25 @@ html.entry-lock .portfolio-world { display: none; }
     backdrop-filter: blur(7px);
 }
 
-html:not(.entry-lock) .academy-gate { display: none; }
+.academy-title {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    justify-items: center;
+    gap: clamp(24px, 5vh, 42px);
+    text-align: center;
+}
+
+.academy-title h1 {
+    margin: 0;
+    color: #f3eef5;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.6rem, 8vw, 6rem);
+    font-weight: 400;
+    letter-spacing: 0.055em;
+    line-height: 1.12;
+    text-shadow: 0 3px 24px rgba(0, 0, 0, 0.9), 0 0 36px rgba(201, 184, 221, 0.28);
+}
 
 .portfolio-world {
     animation: world-arrive 700ms ease both;
