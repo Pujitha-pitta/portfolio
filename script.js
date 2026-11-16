@@ -1,4 +1,4 @@
-﻿// ---------- Type the portfolio owner name letter by letter ----------
+// ---------- Type the portfolio owner name letter by letter ----------
 
 const nameText = document.getElementById("nameText");
 
@@ -116,6 +116,66 @@ const projects = [
             "Explored text classification methods for detecting spam messages.",
         tags: ["Python", "Text Classification"],
         file: "pdfs/Spam%20Detection%20Using%20Supervised%20Learning%20Algorithms.pdf"
+    },
+    {
+        title: "CalmCharge — EV Charging Planner",
+        description: "Analyzes Sweden's SE4 electricity prices and weather to plan lower-cost EV charging, with forecasting and data-quality checks.",
+        tags: ["Python", "Energy", "Forecasting"],
+        github: "https://github.com/Pujitha-pitta/calmcharge"
+    },
+    {
+        title: "Swedish–English RAG Abstention Benchmark",
+        description: "Tests when compact language models should answer from retrieved evidence or abstain, across matched Swedish and English cases.",
+        tags: ["AI", "RAG", "Evaluation"],
+        github: "https://github.com/Pujitha-pitta/se-en-rag-abstention-benchmark"
+    },
+    {
+        title: "The Haunted Snack Shop",
+        description: "A cooperative, phone-friendly multiplayer shop game where players coordinate ghost-customer orders and a shared kitchen.",
+        tags: ["Web Development", "Multiplayer", "Game"],
+        github: "https://github.com/Pujitha-pitta/haunted-snack-shop"
+    },
+    {
+        title: "Fridge Day Planner",
+        description: "A family dashboard concept for a Samsung Family Hub with a clock, local weather, and daily schedule.",
+        tags: ["Web Development", "Dashboard", "API"],
+        github: "https://github.com/Pujitha-pitta/fridge-day-planner"
+    },
+    {
+        title: "Pulseboard — Apple Health Analytics",
+        description: "A local-first dashboard for exploring Apple Health activity and recovery trends from imported health data.",
+        tags: ["Health Data", "Dashboard", "Privacy"],
+        github: "https://github.com/Pujitha-pitta/apple-watch-health-dashboard"
+    },
+    {
+        title: "TrendForge — Dataset Studio",
+        description: "Collects and normalizes multi-source topic and weather data into datasets, with optional AI summaries and labels.",
+        tags: ["AI", "Data Engineering", "APIs"],
+        github: "https://github.com/Pujitha-pitta/trendforge-ai-dataset-builder"
+    },
+    {
+        title: "Premier League Match Predictor",
+        description: "Builds pre-match features from historical results and predicts Home, Draw, or Away probabilities.",
+        tags: ["Python", "Machine Learning", "Sports Analytics"],
+        github: "https://github.com/Pujitha-pitta/premier-league-match-predictor"
+    },
+    {
+        title: "Terraform Kubernetes Ops Lab",
+        description: "A local observability and operations lab using Docker, Kubernetes, Terraform, and a Python API.",
+        tags: ["Terraform", "Kubernetes", "Docker"],
+        github: "https://github.com/Pujitha-pitta/terraform-kubernetes-ops-lab"
+    },
+    {
+        title: "Network Diagnostics & SLA Ticketing Toolkit",
+        description: "Linux network diagnostics with automated SLA incident ticketing workflows.",
+        tags: ["Python", "Linux", "Networking", "Jira"],
+        github: "https://github.com/Pujitha-pitta/network-diagnostics-sla-tool"
+    },
+    {
+        title: "RAID 5 Fault & Storage Telemetry Simulator",
+        description: "Simulates storage hardware faults, SMART telemetry, and RAID 5 recovery, including a safe deterministic mode.",
+        tags: ["Python", "Bash", "Storage"],
+        github: "https://github.com/Pujitha-pitta/raid5-hardware-fault-simulator"
     }
 ];
 
@@ -150,14 +210,29 @@ if (projectList) {
             tags.appendChild(tag);
         });
 
-        const link = document.createElement("a");
-        link.className = "project-link";
-        link.href = project.file;
-        link.textContent = "View project ↗";
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
+        const actions = document.createElement("div");
+        actions.className = "project-actions";
 
-        card.append(number, title, description, tags, link);
+        if (project.file) {
+            const fileLink = document.createElement("a");
+            fileLink.className = "project-link";
+            fileLink.href = project.file;
+            fileLink.textContent = "View project ↗";
+            fileLink.target = "_blank";
+            fileLink.rel = "noopener noreferrer";
+            actions.appendChild(fileLink);
+        }
+        if (project.github) {
+            const githubLink = document.createElement("a");
+            githubLink.className = "project-link";
+            githubLink.href = project.github;
+            githubLink.textContent = "View on GitHub ↗";
+            githubLink.target = "_blank";
+            githubLink.rel = "noopener noreferrer";
+            actions.appendChild(githubLink);
+        }
+
+        card.append(number, title, description, tags, actions);
         projectList.appendChild(card);
     });
 }
@@ -182,6 +257,7 @@ const currentYear = document.getElementById("currentYear");
 if (currentYear) {
     currentYear.textContent = new Date().getFullYear();
 }
+
 
 
 
