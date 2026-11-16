@@ -408,6 +408,47 @@ hr {
     font-size: 0.9rem;
 }
 
+.achievement-section {
+    max-width: 390px;
+    margin: 30px auto 0;
+    padding: 16px 18px;
+    border: 1px solid rgba(201, 243, 243, 0.48);
+    border-left: 3px solid #c9f3f3;
+    background: rgba(201, 243, 243, 0.055);
+    text-align: left;
+}
+
+.achievement-eyebrow {
+    margin: 0 0 6px;
+    color: #c9f3f3;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+}
+
+.achievement-section h3 {
+    margin: 0 0 4px;
+    color: #e4e4e7;
+}
+
+.achievement-section p:not(.achievement-eyebrow) {
+    margin: 0 0 8px;
+    color: #c5cbd0;
+}
+
+.achievement-section a,
+.project-link {
+    color: #c9f3f3;
+    font-weight: bold;
+}
+
+.project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 8px;
+}
+
 .section-bottom-link {
     text-align: center;
     font-weight: bold;
@@ -733,3 +774,4 @@ footer {
 @media (prefers-reduced-motion: reduce) {
     .skill-tile { transition: none; }
 }
+
