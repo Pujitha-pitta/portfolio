@@ -171,11 +171,6 @@ const projects = [
         tags: ["Python", "Bash", "Storage"],
         github: "https://github.com/Pujitha-pitta/raid5-hardware-fault-simulator"
     },
-    {
-        title: "Radar — Team 8",
-        description: "A virtual science park for Blue Science Park. Radar helps companies discover relevant funding, events, testbeds, and partners using evidence-backed profiles and AI agents.",
-        tags: ["AI Agents", "Python", "TypeScript", "BUILD Hackathon 2026"]
-    }
 ];
 
 
@@ -225,7 +220,7 @@ if (projectList) {
             const githubLink = document.createElement("a");
             githubLink.className = "project-link";
             githubLink.href = project.github;
-            githubLink.textContent = project.title === "Radar — Team 8" ? "My copy on GitHub ↗" : "View on GitHub ↗";
+            githubLink.textContent = "View on GitHub ↗";
             githubLink.target = "_blank";
             githubLink.rel = "noopener noreferrer";
             actions.appendChild(githubLink);
