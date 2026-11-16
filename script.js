@@ -124,12 +124,6 @@ const projects = [
         github: "https://github.com/Pujitha-pitta/calmcharge"
     },
     {
-        title: "Swedish–English RAG Abstention Benchmark",
-        description: "Tests when compact language models should answer from retrieved evidence or abstain, across matched Swedish and English cases.",
-        tags: ["AI", "RAG", "Evaluation"],
-        github: "https://github.com/Pujitha-pitta/se-en-rag-abstention-benchmark"
-    },
-    {
         title: "The Haunted Snack Shop",
         description: "A cooperative, phone-friendly multiplayer shop game where players coordinate ghost-customer orders and a shared kitchen.",
         tags: ["Web Development", "Multiplayer", "Game"],
