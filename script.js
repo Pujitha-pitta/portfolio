@@ -227,7 +227,7 @@ if (projectList) {
             const githubLink = document.createElement("a");
             githubLink.className = "project-link";
             githubLink.href = project.github;
-            githubLink.textContent = "View on GitHub ↗";
+            githubLink.textContent = project.title === "Radar — Team 8" ? "My copy on GitHub ↗" : "View on GitHub ↗";
             githubLink.target = "_blank";
             githubLink.rel = "noopener noreferrer";
             actions.appendChild(githubLink);
