@@ -1,17 +1,3 @@
-// ---------- Open the portfolio from its title screen ----------
-
-const enterWorldButton = document.getElementById("enterWorld");
-
-if (enterWorldButton) {
-    enterWorldButton.addEventListener("click", () => {
-        document.documentElement.classList.remove("entry-lock");
-        const homeHeading = document.getElementById("home");
-        if (homeHeading) {
-            homeHeading.setAttribute("tabindex", "-1");
-            homeHeading.focus({ preventScroll: true });
-        }
-    });
-}
 // ---------- Type the portfolio owner name letter by letter ----------
 
 const nameText = document.getElementById("nameText");
