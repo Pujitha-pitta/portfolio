@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" fill="none" role="img" aria-label="Original gothic academy crest">
+  <path d="M50 4 91 18v37c0 27-16 47-41 61C25 102 9 82 9 55V18L50 4Z" fill="#17111d" stroke="#c6b39a" stroke-width="2"/>
+  <path d="M50 11 84 22v32c0 23-13 40-34 52C29 94 16 77 16 54V22l34-11Z" stroke="#786785" stroke-width="1.4"/>
+  <path d="M50 31c-12 0-22 10-22 22v25h44V53c0-12-10-22-22-22Z" fill="#282033" stroke="#c6b39a" stroke-width="2"/>
+  <path d="M50 39v39M37 51h26M39 63h22" stroke="#b6a0c8" stroke-width="2" stroke-linecap="round"/>
+  <path d="m50 17 2.3 5 5.4.6-4 3.6 1.1 5.3-4.8-2.7-4.8 2.7 1.1-5.3-4-3.6 5.4-.6L50 17Z" fill="#d8c6a6"/>
+  <path d="M22 83c8 7 17 11 28 14 11-3 20-7 28-14" stroke="#786785" stroke-width="1.5"/>
+</svg>
+
