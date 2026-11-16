@@ -1359,8 +1359,7 @@ nav a:hover {
 
 /* The title screen uses a native anchor, so entry works without JavaScript. */
 .theme-home .portfolio-world { display: none; }
-.theme-home .portfolio-world:target { display: block; }
-.theme-home .academy-gate:has(+ .portfolio-world:target) { display: none; }
+.theme-home .portfolio-world:target { display: block; animation: world-arrive 900ms cubic-bezier(.2,.75,.2,1) both; }
 .academy-gate {
     position: fixed;
     z-index: 1000;
@@ -1369,11 +1368,20 @@ nav a:hover {
     place-items: center;
     min-height: 100svh;
     padding: 24px;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 650ms ease, visibility 0s linear 650ms;
     background:
         linear-gradient(180deg, rgba(8, 7, 12, 0.26), rgba(8, 7, 12, 0.38) 42%, rgba(7, 6, 10, 0.8)),
         linear-gradient(90deg, rgba(10, 8, 15, 0.35), transparent 52%, rgba(10, 8, 15, 0.38)),
         url("images/nevermore-castle.svg") center / cover no-repeat,
         #09080d;
+}
+
+.theme-home .academy-gate:has(+ .portfolio-world:target) {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .academy-gate::before {
@@ -1400,8 +1408,16 @@ nav a:hover {
     z-index: 1;
     display: grid;
     justify-items: center;
-    gap: clamp(24px, 5vh, 42px);
+    gap: clamp(12px, 2.8vh, 26px);
     text-align: center;
+}
+
+.academy-emblem {
+    display: block;
+    width: 56px;
+    height: 68px;
+    filter: drop-shadow(0 0 18px rgba(191, 166, 205, 0.38));
+    animation: crest-glint 5s ease-in-out infinite alternate;
 }
 
 .academy-title h1 {
@@ -1413,6 +1429,65 @@ nav a:hover {
     letter-spacing: 0.055em;
     line-height: 1.12;
     text-shadow: 0 3px 24px rgba(0, 0, 0, 0.9), 0 0 36px rgba(201, 184, 221, 0.28);
+}
+
+.academy-role {
+    margin: -8px 0 0;
+    color: #d5c7df;
+    font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.9);
+}
+
+.raven-flight {
+    position: absolute;
+    z-index: 1;
+    top: 5%;
+    left: 0;
+    width: 100%;
+    height: 48%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.raven { fill: rgba(5, 5, 9, 0.76); }
+.raven-one { animation: raven-cross 24s linear -8s infinite; opacity: 0.75; }
+.raven-two { animation: raven-cross 31s linear -19s infinite; opacity: 0.48; }
+.raven-three { animation: raven-cross 27s linear -3s infinite; opacity: 0.62; }
+
+.raven-one path { transform: scale(.68); transform-origin: center; }
+.raven-two path { transform: scale(.43); transform-origin: center; }
+.raven-three path { transform: scale(.82); transform-origin: center; }
+
+.academy-particles {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.34;
+    background-image:
+        radial-gradient(circle, rgba(225, 207, 239, .82) 0 1px, transparent 1.8px),
+        radial-gradient(circle, rgba(182, 145, 208, .7) 0 1.2px, transparent 2px),
+        radial-gradient(circle, rgba(237, 224, 195, .65) 0 .8px, transparent 1.7px);
+    background-size: 173px 211px, 251px 287px, 319px 233px;
+    background-position: 16px 27px, 92px 101px, 224px 46px;
+    animation: particle-drift 30s linear infinite;
+}
+
+@keyframes raven-cross {
+    from { transform: translate3d(-140px, 0, 0); }
+    to { transform: translate3d(calc(100vw + 140px), 90px, 0); }
+}
+
+@keyframes particle-drift {
+    to { background-position: 16px -211px, 92px -186px, 224px -187px; }
+}
+
+@keyframes crest-glint {
+    from { filter: drop-shadow(0 0 10px rgba(191, 166, 205, 0.2)); }
+    to { filter: drop-shadow(0 0 20px rgba(191, 166, 205, 0.46)); }
 }
 
 .portfolio-world {
@@ -1555,11 +1630,56 @@ main:has(#publications) { counter-reset: volume; }
 @media (max-width: 600px) {
     .academy-gate { background-position: 52% center; }
     .academy-gate::before { inset: 9px; }
+    .academy-emblem { width: 48px; height: 58px; }
+    .raven-flight { top: 8%; height: 40%; }
     .publication-item { padding: 19px 14px 18px 29px; }
     .project-card { padding: 17px 14px; }
 }
 
+.portrait-frame {
+    position: relative;
+    display: block;
+    flex: 0 0 126px;
+    width: 126px;
+    height: 166px;
+    padding: 7px;
+    border: 1px solid #bba27f;
+    border-radius: 64px 64px 5px 5px;
+    background: linear-gradient(145deg, #4b3a48, #17121b 70%);
+    box-shadow: 0 0 0 3px rgba(187, 162, 127, 0.12), 0 14px 32px rgba(0, 0, 0, 0.48), inset 0 0 0 2px rgba(224, 207, 175, 0.12);
+}
+
+.portrait-frame::before {
+    content: "✦";
+    position: absolute;
+    z-index: 2;
+    right: 7px;
+    bottom: 4px;
+    left: 7px;
+    color: #d1b98f;
+    font-size: 0.7rem;
+    line-height: 1;
+    text-align: center;
+    text-shadow: 0 0 8px rgba(209, 185, 143, .6);
+}
+
+.portrait-frame .profile-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    border: 1px solid rgba(213, 192, 159, 0.58);
+    border-radius: 56px 56px 2px 2px;
+    box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 600px) {
+    .portrait-frame { flex-basis: 102px; width: 102px; height: 140px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .portfolio-world { animation: none; }
+    .academy-gate, .academy-emblem, .raven, .academy-particles { animation: none; transition: none; }
 }
 
