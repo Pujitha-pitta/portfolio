@@ -1683,3 +1683,23 @@ main:has(#publications) { counter-reset: volume; }
     .academy-gate, .academy-emblem, .raven, .academy-particles { animation: none; transition: none; }
 }
 
+/* After entry, keep the role banner compact and leave the owner name on the title screen. */
+.theme-home .portfolio-world .hero {
+    min-height: 0;
+    max-width: 1120px;
+    margin: 18px auto 0;
+    padding: 12px 20px 4px;
+    border-radius: 12px 12px 0 0;
+    background: linear-gradient(115deg, rgba(20, 16, 26, 0.94), rgba(36, 21, 47, 0.8) 54%, rgba(15, 13, 20, 0.94));
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+}
+
+.theme-home .portfolio-world .hero::before,
+.hero:not(:has(h1))::before { display: none; }
+
+.theme-home .portfolio-world .hero-subtitle { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-home .portfolio-world .hero { transition: none; }
+}
+
