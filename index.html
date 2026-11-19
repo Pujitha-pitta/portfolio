@@ -3,70 +3,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Naga Pujitha Pitta's software development and AI portfolio">
-    <title>Home | Pujitha Portfolio</title>
-    <link rel="stylesheet" href="Style.css?v=nevermore-no-page-name-2026">
+    <meta name="description" content="Naga Pujitha Pitta's software development, AI, and computer science portfolio.">
+    <title>Home | Naga Pujitha Pitta · Software Developer</title>
+    <!-- Google Fonts for Gothic & Antiqua Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css?v=nevermore-2026-v2">
 </head>
 <body class="theme-home">
-    <section class="academy-gate" aria-label="Portfolio entrance">
-        <div class="academy-title">
-            <img class="academy-emblem" src="images/nevermore-emblem.svg" alt="" aria-hidden="true">
-            <h1>Naga Pujitha Pitta</h1>
-            <p class="academy-role">Software Developer</p>
-            <a class="enter-world-button" id="enterWorld" href="#portfolioWorld">Enter My World</a>
+
+    <!-- ====================================================================
+         NEVERMORE ACADEMY ENTRANCE (CINEMATIC FULL-SCREEN HOME SECTION)
+         ==================================================================== -->
+    <section class="academy-gate" id="academyGate" aria-label="Nevermore Academy Entrance">
+        <!-- Cinematic Castle, Moonlight, Fog & Purple Lighting -->
+        <div class="sky-elements" aria-hidden="true">
+            <div class="gothic-moon"></div>
+            <div class="moon-halo"></div>
+            
+            <!-- Castle Architecture Silhouette -->
+            <svg class="castle-architecture" viewBox="0 0 1440 600" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="castleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#160e24"/>
+                        <stop offset="50%" stop-color="#0e0917"/>
+                        <stop offset="100%" stop-color="#07050b"/>
+                    </linearGradient>
+                    <radialGradient id="windowGlow" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#eed8ff" stop-opacity="0.9"/>
+                        <stop offset="60%" stop-color="#9d4edd" stop-opacity="0.5"/>
+                        <stop offset="100%" stop-color="#491375" stop-opacity="0"/>
+                    </radialGradient>
+                </defs>
+                <!-- Distant Spires -->
+                <polygon points="120,380 150,160 180,380" fill="#1b122c"/>
+                <polygon points="260,390 285,190 310,390" fill="#1b122c"/>
+                <polygon points="1120,400 1145,180 1170,400" fill="#1b122c"/>
+                <polygon points="1280,380 1310,140 1340,380" fill="#1b122c"/>
+                
+                <!-- Main Castle Silhouette -->
+                <path d="M0,600 L0,380 L80,380 L80,310 L90,290 L110,290 L120,310 L120,380 
+                         L220,380 L220,240 L260,200 L300,240 L300,380 
+                         L420,380 L420,330 L440,310 L500,310 L520,330 L520,380
+                         L600,380 L600,220 L660,140 L720,220 L720,380
+                         L820,380 L820,260 L870,200 L920,260 L920,380
+                         L1020,380 L1020,320 L1070,320 L1070,380
+                         L1180,380 L1180,230 L1220,180 L1260,230 L1260,380
+                         L1360,380 L1360,300 L1380,280 L1400,300 L1400,380 L1440,380 L1440,600 Z" 
+                      fill="url(#castleGrad)"/>
+                
+                <!-- Lit Gothic Cathedral Windows in Towers -->
+                <path d="M255,270 Q260,250 265,270 L265,295 L255,295 Z" fill="url(#windowGlow)"/>
+                <path d="M652,210 Q660,185 668,210 L668,245 L652,245 Z" fill="url(#windowGlow)"/>
+                <path d="M863,280 Q870,260 877,280 L877,305 L863,305 Z" fill="url(#windowGlow)"/>
+                <path d="M1214,260 Q1220,240 1226,260 L1226,285 L1214,285 Z" fill="url(#windowGlow)"/>
+            </svg>
+
+            <!-- Rolling Volumetric Fog Layers -->
+            <div class="fog-layer fog-back"></div>
+            <div class="fog-layer fog-front"></div>
         </div>
-        <svg class="raven-flight" viewBox="0 0 1000 420" preserveAspectRatio="none" aria-hidden="true">
-            <g class="raven raven-one"><path d="M0 21C18 5 35 4 54 19c13-13 31-15 50-7-10 13-23 20-41 20-10 13-22 23-40 27l8-24C19 37 9 32 0 21Z"/></g>
-            <g class="raven raven-two"><path d="M0 21C18 5 35 4 54 19c13-13 31-15 50-7-10 13-23 20-41 20-10 13-22 23-40 27l8-24C19 37 9 32 0 21Z"/></g>
-            <g class="raven raven-three"><path d="M0 21C18 5 35 4 54 19c13-13 31-15 50-7-10 13-23 20-41 20-10 13-22 23-40 27l8-24C19 37 9 32 0 21Z"/></g>
+
+        <!-- Flying Raven Silhouettes -->
+        <svg class="raven-flight" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true">
+            <g class="raven raven-one">
+                <path d="M0,25 C15,8 32,7 50,22 C62,10 78,8 95,15 C85,27 73,34 56,34 C47,46 36,55 20,59 L27,36 C18,40 9,35 0,25 Z"/>
+            </g>
+            <g class="raven raven-two">
+                <path d="M0,25 C15,8 32,7 50,22 C62,10 78,8 95,15 C85,27 73,34 56,34 C47,46 36,55 20,59 L27,36 C18,40 9,35 0,25 Z"/>
+            </g>
+            <g class="raven raven-three">
+                <path d="M0,25 C15,8 32,7 50,22 C62,10 78,8 95,15 C85,27 73,34 56,34 C47,46 36,55 20,59 L27,36 C18,40 9,35 0,25 Z"/>
+            </g>
         </svg>
+
+        <!-- Ambient Dust & Silver Embers -->
         <span class="academy-particles" aria-hidden="true"></span>
-    </section>
-    <div class="portfolio-world" id="portfolioWorld">
-    <div class="background-shapes" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="glow-cursor" aria-hidden="true"></div>
-    <header class="hero" id="home"><div class="hero-content"><p class="hero-subtitle"><span id="roleText">Software Developer</span><span class="typing-cursor">|</span></p></div><span class="hero-frame" aria-hidden="true"></span></header>
-    <nav aria-label="Main navigation"><a href="index.html">Home</a><span class="nav-dot">•</span><a href="experience.html">Experience</a><span class="nav-dot">•</span><a href="projects.html">Projects</a><span class="nav-dot">•</span><a href="publications.html">Publications</a></nav>
-    <main>        <section class="about section" id="about">
-            <div class="about-heading">
-                <div class="portrait-frame"><img class="profile-photo" src="images/profile.jpeg" alt="Naga Pujitha Pitta" onerror="this.hidden=true;"></div>
-                <div><h2>Hey — I'm Pujitha.</h2><p>I am a Computer Science graduate from Blekinge Institute of Technology, Sweden.</p></div>
-            </div>
-            <p>I am interested in full-stack development, artificial intelligence, and machine learning. I enjoy building applications, solving technical problems, and learning new technologies.</p>
-            <p>My work includes cloud-based web applications, machine learning projects, and research into reliable federated learning models.</p>
-            <hr><h3>Education</h3><p><strong>Master of Science in Computer Science</strong><br>Blekinge Institute of Technology · Sweden</p>
-            <hr>
-            <div class="skills-showcase">
-                <div class="skills-showcase-heading"><div><span class="skills-kicker">STACK / INDEX 012</span><h3>Technical Skills</h3></div><span class="skills-orbit" aria-hidden="true">✳</span></div>
-                <div class="skills-board" aria-label="Technical skills">
-                    <div class="skill-tile" data-group="code"><span class="skill-symbol">Py</span><span class="skill-name">Python</span><span class="skill-kind">LANGUAGE</span></div>
-                    <div class="skill-tile" data-group="code"><span class="skill-symbol">Ja</span><span class="skill-name">Java</span><span class="skill-kind">LANGUAGE</span></div>
-                    <div class="skill-tile" data-group="code"><span class="skill-symbol">JS</span><span class="skill-name">JavaScript</span><span class="skill-kind">LANGUAGE</span></div>
-                    <div class="skill-tile" data-group="code"><span class="skill-symbol">SQL</span><span class="skill-name">SQL</span><span class="skill-kind">LANGUAGE</span></div>
-                    <div class="skill-tile" data-group="web"><span class="skill-symbol">&lt;/&gt;</span><span class="skill-name">HTML</span><span class="skill-kind">WEB</span></div>
-                    <div class="skill-tile" data-group="web"><span class="skill-symbol">#</span><span class="skill-name">CSS</span><span class="skill-kind">WEB</span></div>
-                    <div class="skill-tile" data-group="web"><span class="skill-symbol">Fl</span><span class="skill-name">Flask</span><span class="skill-kind">WEB</span></div>
-                    <div class="skill-tile" data-group="ai"><span class="skill-symbol">ML</span><span class="skill-name">Scikit-learn</span><span class="skill-kind">AI / DATA</span></div>
-                    <div class="skill-tile" data-group="ai"><span class="skill-symbol">Tf</span><span class="skill-name">TensorFlow</span><span class="skill-kind">AI / DATA</span></div>
-                    <div class="skill-tile" data-group="ai"><span class="skill-symbol">Pd</span><span class="skill-name">Pandas</span><span class="skill-kind">AI / DATA</span></div>
-                    <div class="skill-tile" data-group="ai"><span class="skill-symbol">Np</span><span class="skill-name">NumPy</span><span class="skill-kind">AI / DATA</span></div>
-                    <div class="skill-tile" data-group="cloud"><span class="skill-symbol">☁</span><span class="skill-name">AWS</span><span class="skill-kind">CLOUD</span></div>
+
+        <!-- Interactive 3D Wrought-Iron Entrance Gates -->
+        <div class="wrought-iron-gates" aria-hidden="true">
+            <div class="gate-wing gate-left" id="gateLeft">
+                <div class="gate-bars">
+                    <span class="bar bar-spear"></span>
+                    <span class="bar bar-spear"></span>
+                    <span class="bar bar-spear"></span>
+                    <span class="bar bar-spear"></span>
+                    <span class="bar bar-spear"></span>
+                    <span class="bar bar-spear"></span>
+                    <span class="gate-scroll scroll-top"></span>
+                    <span class="gate-scroll scroll-mid"></span>
                 </div>
-                <div class="skills-legend"><span><i data-group="code"></i>Code</span><span><i data-group="web"></i>Web</span><span><i data-group="ai"></i>AI &amp; Data</span><span><i data-group="cloud"></i>Cloud</span></div>
             </div>
-        </section>
-        <section class="reference-links" aria-label="Resume and contact links">
-            <p class="resume-link"><a href="resume.pdf" target="_blank" rel="noopener noreferrer">View résumé ↗</a></p>
-                <p class="reference-social-links"><a href="https://linkedin.com/in/naga-pujitha-pitta-bb8784255" target="_blank" rel="noopener noreferrer">LinkedIn</a><span>·</span><a href="https://github.com/Pujitha-pitta" target="_blank" rel="noopener noreferrer">GitHub</a><span>·</span><a href="mailto:nagapujitha456@gmail.com">Email</a></p>
-        </section>
-        <p class="section-bottom-link page-next"><a href="experience.html">〈 My Experience 〉</a></p></main>
-    <footer><p>© <span id="currentYear"></span> Naga Pujitha Pitta</p></footer>
+            <div class="gate-wing gate-right" id="gateRight">
+                <div class="gate-bars">
+                    <span class="bar bar-spear"></span>
+                    <span class="bar bar-spear"></span>
+                    <span class="bar bar-spear"></span>
+                    <span class="bar bar-spear"></span>
+                    <span class="bar bar-spear"></span>
+                    <span class="bar bar-spear"></span>
+                    <span class="gate-scroll scroll-top"></span>
+                    <span class="gate-scroll scroll-mid"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Academy Centerpiece / Entrance Heading -->
+        <div class="academy-title">
+            <!-- Original Artwork: Nevermore Academy Emblem -->
+            <div class="emblem-container" title="Nevermore Academy Emblem">
+                <svg class="academy-emblem" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <!-- Outer Crest Shield -->
+                    <path d="M50,4 L92,20 L92,68 C92,94 50,116 50,116 C50,116 8,94 8,68 L8,20 Z" 
+                          fill="#171220" stroke="#cbb4dd" stroke-width="2.5"/>
+                    <path d="M50,10 L86,24 L86,66 C86,88 50,108 50,108 C50,108 14,88 14,66 L14,24 Z" 
+                          fill="none" stroke="#724e8e" stroke-width="1.2" stroke-dasharray="2,2"/>
+                    <!-- Crescent Moon at Top -->
+                    <path d="M50,17 C54,17 58,19 60,22 C56,23 53,26 53,30 C53,34 56,37 60,38 C58,41 54,43 50,43 C42.8,43 37,37.2 37,30 C37,22.8 42.8,17 50,17 Z" 
+                          fill="#e4d7f5"/>
+                    <!-- The Nevermore Raven Silhouette -->
+                    <path d="M50,38 C54,43 62,48 74,47 C68,52 61,54 55,56 C68,58 76,65 82,75 C73,72 65,72 58,74 C62,81 65,88 64,95 C57,89 53,83 50,78 C47,83 43,89 36,95 C35,88 38,81 42,74 C35,72 27,72 18,75 C24,65 32,58 45,56 C39,54 32,52 26,47 C38,48 46,43 50,38 Z" 
+                          fill="#e4d7f5"/>
+                    <!-- Ribbon Banner -->
+                    <path d="M20,100 L50,96 L80,100 L74,106 L50,102 L26,106 Z" fill="#422557" stroke="#cbb4dd" stroke-width="1"/>
+                    <text x="50" y="102" fill="#fff" font-size="4.2" font-family="'Cinzel', serif" font-weight="bold" text-anchor="middle" letter-spacing="0.5">NEVERMORE</text>
+                </svg>
+            </div>
+
+            <div class="academy-kicker">
+                <span class="kicker-line"></span>
+                <span>NEVERMORE ACADEMY · SANCTUARY FOR OUTCASTS</span>
+                <span class="kicker-line"></span>
+            </div>
+
+            <!-- Name in Elegant Gothic Typography -->
+            <h1 class="academy-name">Naga Pujitha Pitta</h1>
+
+            <!-- Professional Title -->
+            <p class="academy-role">
+                <span class="role-symbol">✦</span>
+                <span class="role-label">Software Developer</span>
+                <span class="role-symbol">✦</span>
+            </p>
+
+            <p class="academy-degree-meta">M.Sc. in Computer Science · Blekinge Institute of Technology, Sweden</p>
+
+            <!-- Interactive "Enter My World" Button -->
+            <div class="entrance-action">
+                <a class="enter-world-button" id="enterWorld" href="#portfolioWorld">
+                    <span class="btn-icon">🗝</span>
+                    <span class="btn-text">Enter My World</span>
+                    <span class="btn-glow" aria-hidden="true"></span>
+                </a>
+                <span class="entrance-hint">Unlock gates to explore projects, research &amp; background</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================================
+         PORTFOLIO WORLD (INNER SECTIONS)
+         ==================================================================== -->
+    <div class="portfolio-world" id="portfolioWorld">
+        <!-- Floating shapes background -->
+        <div class="background-shapes" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="glow-cursor" aria-hidden="true"></div>
+
+        <!-- Persistent Header Bar -->
+        <header class="hero" id="home">
+            <div class="hero-content">
+                <div class="hero-owner-tag">
+                    <span class="hero-emblem-mini">✦</span>
+                    <span class="hero-owner-name">Naga Pujitha Pitta</span>
+                </div>
+                <p class="hero-subtitle">
+                    <span id="roleText">Software Developer</span>
+                    <span class="typing-cursor">|</span>
+                </p>
+            </div>
+            <span class="hero-frame" aria-hidden="true"></span>
+        </header>
+
+        <!-- Main Navigation -->
+        <nav aria-label="Main navigation">
+            <a href="#academyGate" class="nav-return-gate" title="Return to Nevermore Entrance">〈 Entrance Gate 〉</a>
+            <span class="nav-dot">•</span>
+            <a href="index.html" class="active-nav">Home</a>
+            <span class="nav-dot">•</span>
+            <a href="experience.html">Experience</a>
+            <span class="nav-dot">•</span>
+            <a href="projects.html">Projects</a>
+            <span class="nav-dot">•</span>
+            <a href="publications.html">Publications</a>
+        </nav>
+
+        <main>
+            <!-- ============================================================
+                 ABOUT SECTION (WITH VINTAGE GOTHIC PORTRAIT FRAME)
+                 ============================================================ -->
+            <section class="about section" id="about">
+                <div class="about-heading">
+                    <!-- Vintage Gothic Portrait Frame -->
+                    <div class="portrait-frame vintage-gothic-frame" title="Portrait: Naga Pujitha Pitta">
+                        <div class="frame-arch-crest">✦</div>
+                        <div class="frame-filigree top-left"></div>
+                        <div class="frame-filigree top-right"></div>
+                        <div class="frame-inner-mat">
+                            <img class="profile-photo" 
+                                 src="images/profile.jpeg" 
+                                 alt="Naga Pujitha Pitta" 
+                                 onerror="this.src='https://avatars.githubusercontent.com/u/149845353?v=4';">
+                        </div>
+                        <div class="frame-filigree bottom-left"></div>
+                        <div class="frame-filigree bottom-right"></div>
+                        <div class="frame-nameplate">N. P. PITTA</div>
+                    </div>
+
+                    <div class="about-lead-block">
+                        <h2>Hey — I'm Pujitha.</h2>
+                        <p class="lead-bio">I am a Computer Science graduate from Blekinge Institute of Technology, Sweden.</p>
+                        <p class="lead-specialties">Specializing in Full-Stack Systems, Machine Learning &amp; Cloud Infrastructure.</p>
+                    </div>
+                </div>
+
+                <p>I am interested in full-stack development, artificial intelligence, and machine learning. I enjoy building applications, solving technical problems, and learning new technologies.</p>
+                <p>My work includes cloud-based web applications, machine learning projects, and research into reliable federated learning models.</p>
+
+                <hr>
+
+                <h3>Education</h3>
+                <div class="education-card">
+                    <p><strong>Master of Science in Computer Science</strong><br>
+                    Blekinge Institute of Technology · Sweden</p>
+                </div>
+
+                <hr>
+
+                <!-- Technical Skills Showcase -->
+                <div class="skills-showcase">
+                    <div class="skills-showcase-heading">
+                        <div>
+                            <span class="skills-kicker">STACK / INDEX 012</span>
+                            <h3>Technical Skills</h3>
+                        </div>
+                        <span class="skills-orbit" aria-hidden="true">✳</span>
+                    </div>
+
+                    <div class="skills-board" aria-label="Technical skills">
+                        <div class="skill-tile" data-group="code">
+                            <span class="skill-symbol">Py</span>
+                            <span class="skill-name">Python</span>
+                            <span class="skill-kind">LANGUAGE</span>
+                        </div>
+                        <div class="skill-tile" data-group="code">
+                            <span class="skill-symbol">Ja</span>
+                            <span class="skill-name">Java</span>
+                            <span class="skill-kind">LANGUAGE</span>
+                        </div>
+                        <div class="skill-tile" data-group="code">
+                            <span class="skill-symbol">JS</span>
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-kind">LANGUAGE</span>
+                        </div>
+                        <div class="skill-tile" data-group="code">
+                            <span class="skill-symbol">SQL</span>
+                            <span class="skill-name">SQL</span>
+                            <span class="skill-kind">LANGUAGE</span>
+                        </div>
+                        <div class="skill-tile" data-group="web">
+                            <span class="skill-symbol">&lt;/&gt;</span>
+                            <span class="skill-name">HTML</span>
+                            <span class="skill-kind">WEB</span>
+                        </div>
+                        <div class="skill-tile" data-group="web">
+                            <span class="skill-symbol">#</span>
+                            <span class="skill-name">CSS</span>
+                            <span class="skill-kind">WEB</span>
+                        </div>
+                        <div class="skill-tile" data-group="web">
+                            <span class="skill-symbol">Fl</span>
+                            <span class="skill-name">Flask</span>
+                            <span class="skill-kind">WEB</span>
+                        </div>
+                        <div class="skill-tile" data-group="ai">
+                            <span class="skill-symbol">ML</span>
+                            <span class="skill-name">Scikit-learn</span>
+                            <span class="skill-kind">AI / DATA</span>
+                        </div>
+                        <div class="skill-tile" data-group="ai">
+                            <span class="skill-symbol">Tf</span>
+                            <span class="skill-name">TensorFlow</span>
+                            <span class="skill-kind">AI / DATA</span>
+                        </div>
+                        <div class="skill-tile" data-group="ai">
+                            <span class="skill-symbol">Pd</span>
+                            <span class="skill-name">Pandas</span>
+                            <span class="skill-kind">AI / DATA</span>
+                        </div>
+                        <div class="skill-tile" data-group="ai">
+                            <span class="skill-symbol">Np</span>
+                            <span class="skill-name">NumPy</span>
+                            <span class="skill-kind">AI / DATA</span>
+                        </div>
+                        <div class="skill-tile" data-group="cloud">
+                            <span class="skill-symbol">☁</span>
+                            <span class="skill-name">AWS</span>
+                            <span class="skill-kind">CLOUD</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-legend">
+                        <span><i data-group="code"></i>Code</span>
+                        <span><i data-group="web"></i>Web</span>
+                        <span><i data-group="ai"></i>AI &amp; Data</span>
+                        <span><i data-group="cloud"></i>Cloud</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resume & Social Crypts -->
+            <section class="reference-links" aria-label="Resume and contact links">
+                <p class="resume-link">
+                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer">View résumé ↗</a>
+                </p>
+                <p class="reference-social-links">
+                    <a href="https://linkedin.com/in/naga-pujitha-pitta-bb8784255" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <span>·</span>
+                    <a href="https://github.com/Pujitha-pitta" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <span>·</span>
+                    <a href="mailto:nagapujitha456@gmail.com">Email</a>
+                </p>
+            </section>
+
+            <p class="section-bottom-link page-next">
+                <a href="experience.html">〈 My Experience 〉</a>
+            </p>
+        </main>
+
+        <footer>
+            <p>© <span id="currentYear">2026</span> Naga Pujitha Pitta · Crafted with Nevermore Gothic Elegance</p>
+        </footer>
     </div>
+
+    <!-- Entrance & Interactive Scripts -->
     <script src="script.js"></script>
+    <script>
+        // Smooth entrance gate trigger & transition
+        const enterBtn = document.getElementById('enterWorld');
+        const gateLeft = document.getElementById('gateLeft');
+        const gateRight = document.getElementById('gateRight');
+        const academyGate = document.getElementById('academyGate');
+
+        if (enterBtn) {
+            enterBtn.addEventListener('click', function(e) {
+                // Animate wrought-iron gate swing
+                if (gateLeft && gateRight) {
+                    gateLeft.classList.add('swing-open');
+                    gateRight.classList.add('swing-open');
+                }
+                if (academyGate) {
+                    academyGate.classList.add('gate-unlocking');
+                }
+            });
+        }
+
+        // Set current year
+        const yr = document.getElementById('currentYear');
+        if (yr) yr.textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
-
-
-
-
-
