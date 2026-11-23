@@ -281,10 +281,56 @@
       '<div class="v-links">' + projectLinks(p).map(function (k, j) { return '<a class="btn' + (j ? ' btn-ghost' : '') + '" href="' + k.href + '"' + linkAttrs(k.href) + '>' + esc(k.label) + ' ↗</a>'; }).join('') + '</div></div>';
   }
 
-  function openViewer(kind, opener) {
+  /* ---- A project book, opened ---- */
+  var bookColor = { ml: '#2F5D46', ai: '#8A5A12', cloud: '#23527A', infra: '#1F5F5A', web: '#8C2F5F', security: '#8E3326', se: '#5C4585' };
+  var linkIcon = {
+    code: '<path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" fill="currentColor" stroke="none"/>',
+    demo: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+    link: '<path d="M6 3h9l4 4v14H6Z"/><path d="M14 3v5h5M9 13h7M9 17h5"/>'
+  };
+  function visibleBookIds() {
+    return $$('.book').filter(function (b) { return !b.classList.contains('hide'); }).map(function (b) { return b.dataset.id; });
+  }
+  builders.book = function (id) {
+    var i = 0, p = D.projects[0];
+    D.projects.forEach(function (q, k) { if (q.id === id) { i = k; p = q; } });
+    var ids = visibleBookIds(); if (ids.indexOf(id) < 0) ids = D.projects.map(function (q) { return q.id; });
+    var pos = ids.indexOf(id), prev = ids[(pos - 1 + ids.length) % ids.length], next = ids[(pos + 1) % ids.length];
+    var byId = function (x) { return D.projects.filter(function (q) { return q.id === x; })[0]; };
+    var links = [];
+    if (p.code) links.push(['code', p.code, 'Read the code', 'GitHub repository']);
+    if (p.demo) links.push(['demo', p.demo, 'Try the live demo', 'Opens the running app']);
+    if (p.link) links.push(['link', p.link, p.linkLabel || 'Read the report', /\.apk/i.test(p.link) ? 'Android app file' : 'Full write-up']);
+    return '<div class="v-book" style="--bc:' + bookColor[p.track] + '">' +
+      '<div class="v-spread">' +
+        '<section class="v-leaf v-left">' +
+          '<p class="v-chapter">Book ' + (i + 1) + ' of ' + D.projects.length + ' · ' + esc(D.tracks[p.track].label) + '</p>' +
+          (p.featured ? '<p class="v-ribbon">★ ' + esc(p.featured) + '</p>' : '') +
+          '<h3 id="viewerTitle">' + esc(p.title) + '</h3>' +
+          '<p class="v-folder">' + esc(p.folder) + '/</p>' +
+          '<p class="v-story">' + esc(p.desc) + '</p>' +
+          '<span class="v-pageno">' + (i * 2 + 1) + '</span>' +
+        '</section>' +
+        '<section class="v-leaf v-right">' +
+          '<h4>Built with</h4><ul class="tags">' + p.skills.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ul>' +
+          '<h4>Open the project</h4><div class="v-book-links">' + links.map(function (l) {
+            return '<a class="v-booklink" href="' + l[1] + '"' + linkAttrs(l[1]) + '><span class="bl-icon" aria-hidden="true"><svg viewBox="0 0 24 24">' + linkIcon[l[0]] + '</svg></span><span><b>' + esc(l[2]) + ' ↗</b><small>' + esc(l[3]) + '</small></span></a>';
+          }).join('') + '</div>' +
+          '<span class="v-pageno">' + (i * 2 + 2) + '</span>' +
+        '</section>' +
+        '<div class="v-cover" aria-hidden="true"><span class="vc-band"></span><b>' + esc(p.title) + '</b><span class="vc-band"></span></div>' +
+      '</div>' +
+      '<div class="v-book-nav">' +
+        '<button type="button" class="v-turn" data-book="' + prev + '"><span aria-hidden="true">←</span><span><small>Previous book</small>' + esc(byId(prev).title) + '</span></button>' +
+        '<a class="v-shelf" href="#projects" data-close>Back to the shelf</a>' +
+        '<button type="button" class="v-turn next" data-book="' + next + '"><span><small>Next book</small>' + esc(byId(next).title) + '</span><span aria-hidden="true">→</span></button>' +
+      '</div></div>';
+  };
+
+  function openViewer(kind, opener, arg) {
     if (!builders[kind]) return;
     lastOpener = opener || null;
-    inner.innerHTML = builders[kind]();
+    inner.innerHTML = builders[kind](arg);
     if (kind === 'projects') {
       showReadme(0);
       $$('.v-file', inner).forEach(function (b) { b.addEventListener('click', function () { showReadme(+b.dataset.i); }); });
@@ -300,6 +346,22 @@
     var jump = e.target.closest('[data-close]');
     if (jump) { e.preventDefault(); closeViewer(); go(jump.getAttribute('href').slice(1)); }
     if (e.target.closest('[data-copy]')) copyEmail();
+    var turn = e.target.closest('[data-book]');
+    if (turn) turnTo(turn.dataset.book, turn.classList.contains('next'));
+  });
+  function turnTo(id, forward) {
+    inner.innerHTML = builders.book(id);
+    var bk = $('.v-book', inner);
+    if (bk) bk.classList.add(forward ? 'turn-next' : 'turn-prev');
+    var b = $('.book[data-id="' + id + '"]'); if (b) lastOpener = b;
+    var t = $('.v-turn' + (forward ? '.next' : ':not(.next)'), inner); if (t) t.focus({ preventScroll: true });
+  }
+  viewer.addEventListener('keydown', function (e) {
+    if (!$('.v-book', inner)) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      var t = $('.v-turn' + (e.key === 'ArrowRight' ? '.next' : ':not(.next)'), inner);
+      if (t) { e.preventDefault(); turnTo(t.dataset.book, e.key === 'ArrowRight'); }
+    }
   });
   viewer.addEventListener('close', function () {
     if (viewer.open) return; /* reopened before this queued event fired */
@@ -369,7 +431,37 @@
       return '<button type="button" class="filter" data-f="' + k + '" aria-pressed="false" style="--c:' + trackColor[k] + '"><span class="dot" aria-hidden="true"></span>' + esc(D.tracks[k].label) + ' · ' + counts[k] + '</button>';
     }).join('');
 
-  var cards = $$('.project', pgrid);
+  /* The bookshelf: one book per project */
+  var shelf = $('#shelf'), library = $('#library');
+  shelf.innerHTML = D.projects.map(function (p, i) {
+    var h = 0; for (var k = 0; k < p.id.length; k++) h = (h * 31 + p.id.charCodeAt(k)) % 997;
+    var height = 214 + (h % 5) * 11;
+    var width = 50 + Math.min(p.title.length, 46) * 0.5;
+    var lean = (i % 7 === 6) ? ' lean' : '';
+    return '<div class="slot"><button type="button" class="book' + lean + (p.featured ? ' featured' : '') + '" data-id="' + p.id + '" data-track="' + p.track + '"' +
+      ' style="--bc:' + bookColor[p.track] + ';--bh:' + height + 'px;--bw:' + Math.round(width) + 'px;--rd:' + (i * 0.025).toFixed(3) + 's"' +
+      ' aria-label="Open book: ' + esc(p.title) + ' (' + esc(D.tracks[p.track].label) + ')">' +
+      '<span class="b-band top" aria-hidden="true"></span>' +
+      '<span class="b-title">' + esc(p.title.split(':')[0]) + '</span>' +
+      '<span class="b-band bottom" aria-hidden="true"></span>' +
+      (p.featured ? '<span class="b-ribbon" aria-hidden="true"></span>' : '') +
+      '</button></div>';
+  }).join('');
+  shelf.addEventListener('click', function (e) {
+    var b = e.target.closest('.book'); if (!b) return;
+    openViewer('book', b, b.dataset.id);
+  });
+
+  /* Bookshelf / cards switch, remembered per visitor */
+  function setView(v) {
+    library.dataset.view = v;
+    $$('.vs-btn').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.view === v)); });
+    store.set('np-view', v);
+  }
+  $$('.vs-btn').forEach(function (b) { b.addEventListener('click', function () { setView(b.dataset.view); }); });
+  setView(store.get('np-view') === 'list' ? 'list' : 'shelf');
+
+  var cards = $$('.project, .book');
   function showCards(test, matchTag) {
     cards.forEach(function (c, i) {
       var show = test(c);

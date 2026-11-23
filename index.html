@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=desk-3">
+<link rel="stylesheet" href="assets/css/styles.css?v=desk-4">
 <script>
   document.documentElement.classList.add('js');
   try {
@@ -259,10 +259,19 @@
     <div class="wrap">
       <p class="eyebrow reveal">03 · Projects</p>
       <h2 class="reveal">Things I've built</h2>
-      <p class="section-intro reveal">From AI agents and machine-learning models to cloud labs, systems tools and web apps. Each project links to its code on GitHub or its full report.</p>
-      <div class="filters reveal" id="filters" role="group" aria-label="Filter projects"></div>
+      <p class="section-intro reveal">My project library: from AI agents and machine-learning models to cloud labs, systems tools and web apps. Pick a book to open it and read what's inside, with links to the code, demo or full report.</p>
+      <div class="projects-bar reveal">
+        <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+        <div class="view-switch" role="group" aria-label="Project view">
+          <button type="button" class="vs-btn" data-view="shelf" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h3v16H4zM9 4h3v16H9zM14.5 4.6l2.9-.8 4.1 15.4-2.9.8z"/></svg>Bookshelf</button>
+          <button type="button" class="vs-btn" data-view="list" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="8" height="7" rx="1"/><rect x="13" y="4" width="8" height="7" rx="1"/><rect x="3" y="13" width="8" height="7" rx="1"/><rect x="13" y="13" width="8" height="7" rx="1"/></svg>Cards</button>
+        </div>
+      </div>
       <p class="filter-note" id="filterNote" aria-live="polite"></p>
-      <div class="project-grid" id="projectGrid"></div>
+      <div class="library" id="library" data-view="shelf">
+        <div class="shelf" id="shelf" aria-label="Project books. Choose one to open it."></div>
+        <div class="project-grid" id="projectGrid"></div>
+      </div>
     </div>
   </section>
 
@@ -346,7 +355,7 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/js/data.js?v=desk-3"></script>
-<script src="assets/js/main.js?v=desk-3"></script>
+<script src="assets/js/data.js?v=desk-4"></script>
+<script src="assets/js/main.js?v=desk-4"></script>
 </body>
 </html>
