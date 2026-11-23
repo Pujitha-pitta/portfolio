@@ -61,15 +61,6 @@
   tick(); setInterval(tick, 15000);
   $('#year').textContent = new Date().getFullYear();
 
-  /* ---------------- Mobile menu ---------------- */
-  var menuBtn = $('#menuBtn'), mobileNav = $('#mobileNav');
-  menuBtn.addEventListener('click', function () {
-    var open = mobileNav.hidden;
-    mobileNav.hidden = !open;
-    menuBtn.setAttribute('aria-expanded', String(open));
-    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-  });
-  $$('a', mobileNav).forEach(function (a) { a.addEventListener('click', function () { mobileNav.hidden = true; menuBtn.setAttribute('aria-expanded', 'false'); }); });
 
   /* ---------------- Typewriter on the card ---------------- */
   (function typewriter() {
@@ -97,10 +88,9 @@
     var body = $('#termBody');
     if (!body) return;
     var folders = D.projects.map(function (p) { return p.folder + '/'; });
-    var lines = [];
-    for (var i = 0; i < 8; i += 2) lines.push(pad(folders[i], 22) + (folders[i + 1] || ''));
-    function pad(s, n) { while (s.length < n) s += ' '; return s; }
-    var script = [{ t: '$ ls', cls: 'p' }].concat(lines.map(function (l) { return { t: l, cls: 'd' }; }), [{ t: '… and ' + (folders.length - 8) + ' more', cls: '' }, { t: '$ open projects', cls: 'p', caret: true }]);
+    var shown = 6;
+    var lines = folders.slice(0, shown);
+    var script = [{ t: '$ ls', cls: 'p' }].concat(lines.map(function (l) { return { t: l, cls: 'd' }; }), [{ t: '… and ' + (folders.length - shown) + ' more', cls: '' }, { t: '$ open projects', cls: 'p', caret: true }]);
     function render(upto, partial) {
       var html = '';
       for (var j = 0; j < upto; j++) html += '<span class="' + script[j].cls + '">' + esc(script[j].t) + '</span>\n';
@@ -151,6 +141,7 @@
 
   function layout() {
     var w = desk.clientWidth;
+    if (!w) return; /* desk tab is hidden */
     narrow = window.innerWidth < 760;
     if (narrow) {
       scale = w / STAGE_W;
@@ -307,7 +298,7 @@
   viewer.addEventListener('click', function (e) {
     if (e.target === viewer) return closeViewer();
     var jump = e.target.closest('[data-close]');
-    if (jump) { e.preventDefault(); closeViewer(); var t = $(jump.getAttribute('href')); if (t) t.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' }); }
+    if (jump) { e.preventDefault(); closeViewer(); go(jump.getAttribute('href').slice(1)); }
     if (e.target.closest('[data-copy]')) copyEmail();
   });
   viewer.addEventListener('close', function () {
@@ -416,12 +407,11 @@
       setFilterButtons('');
       showCards(function (c) { return projIds.indexOf(c.dataset.id) >= 0; }, matchTag);
       note.innerHTML = 'Showing ' + projIds.length + ' project' + (projIds.length > 1 ? 's that use' : ' that uses') + ' <b>' + skill + '</b>.' + extra + ' <button type="button">Show all</button>';
-      $('#projects').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+      go('projects');
     } else if (others.length) {
-      var t = $('#' + work[others[0]].where);
       toast(b.dataset.skill + ': used in ' + others.map(function (id) { return work[id].label; }).join(', '));
-      if (t) t.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
       b.setAttribute('aria-pressed', 'false');
+      go(work[others[0]].where);
     }
   });
 
@@ -477,16 +467,66 @@
     counters.forEach(function (c) { c.textContent = c.dataset.count; });
   }
 
-  /* ---------------- Active nav link ---------------- */
-  var navLinks = $$('.nav a');
-  if ('IntersectionObserver' in window) {
-    var navIO = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) navLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id); });
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    $$('main section[id]').forEach(function (s) { navIO.observe(s); });
+  /* ---------------- Tabs: one section on screen at a time ---------------- */
+  var tabLinks = $$('.tab'), ink = $('#tabInk'), tabsEl = $('#tabs');
+  var panels = $$('[data-panel]');
+  var order = panels.map(function (p) { return p.id; });
+  var tabName = {};
+  tabLinks.forEach(function (a) { tabName[a.dataset.tab] = a.textContent.trim(); });
+
+  /* Previous / next buttons at the bottom of every section tab */
+  panels.forEach(function (p, i) {
+    if (p.id === 'home') return;
+    var prev = order[i - 1], next = order[i + 1];
+    var nav = document.createElement('nav');
+    nav.className = 'pager wrap';
+    nav.setAttribute('aria-label', 'Previous and next section');
+    nav.innerHTML =
+      (prev ? '<a class="pager-btn" href="#' + prev + '"><span aria-hidden="true">←</span><span><small>Previous</small>' + esc(tabName[prev] || prev) + '</span></a>' : '<span></span>') +
+      (next ? '<a class="pager-btn next" href="#' + next + '"><span><small>Next</small>' + esc(tabName[next] || next) + '</span><span aria-hidden="true">→</span></a>' : '<a class="pager-btn next" href="#home"><span><small>Back to</small>the desk</span><span aria-hidden="true">↺</span></a>');
+    p.appendChild(nav);
+  });
+
+  function moveInk(a) {
+    if (!a || !ink) return;
+    ink.style.width = a.offsetWidth + 'px';
+    ink.style.transform = 'translateX(' + a.offsetLeft + 'px)';
+    var target = a.offsetLeft - (tabsEl.clientWidth - a.offsetWidth) / 2;
+    tabsEl.scrollTo({ left: target, behavior: reduceMotion ? 'auto' : 'smooth' });
   }
+  var current = null;
+  function showTab(id) {
+    if (order.indexOf(id) < 0) id = 'home';
+    if (id === current) return;
+    current = id;
+    panels.forEach(function (p) {
+      var on = p.id === id;
+      p.hidden = !on;
+      p.classList.toggle('active', on);
+      if (on) { p.classList.remove('panel-in'); void p.offsetWidth; p.classList.add('panel-in'); }
+    });
+    tabLinks.forEach(function (a) {
+      var on = a.dataset.tab === id;
+      if (on) { a.setAttribute('aria-current', 'page'); moveInk(a); } else a.removeAttribute('aria-current');
+    });
+    document.title = (id === 'home' ? '' : (tabName[id] || id) + ' · ') + 'Naga Pujitha Pitta · AI/ML Researcher & Software Engineer';
+    if (id === 'home') layout();
+    window.scrollTo(0, 0);
+  }
+  function go(id) {
+    if (('#' + id) === location.hash) showTab(id);
+    else location.hash = id;
+  }
+  function fromHash() {
+    var h = location.hash.slice(1);
+    if (!h || h === 'top') h = 'home';
+    showTab(h);
+  }
+  window.addEventListener('hashchange', fromHash);
+  window.addEventListener('resize', function () { moveInk($('.tab[aria-current="page"]')); });
+  fromHash();
+  /* Fonts change tab widths once they load */
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { moveInk($('.tab[aria-current="page"]')); });
 
   /* ---------------- Deep links from old pages (?open=projects) ---------------- */
   var params = new URLSearchParams(location.search);
