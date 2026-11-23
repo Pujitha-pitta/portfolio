@@ -1,230 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Naga Pujitha Pitta's software development and AI portfolio">
-    <title>Home | Pujitha Portfolio</title>
-<!-- Google Fonts for Gothic & Antiqua Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Style.css?v=nevermore-no-page-name-2026">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naga Pujitha Pitta · AI/ML Researcher &amp; Software Engineer</title>
+<meta name="description" content="Portfolio of Naga Pujitha Pitta, AI/ML researcher and software engineer in Sweden. Federated learning research, machine-learning projects, AWS cloud work and experience.">
+<meta property="og:title" content="Naga Pujitha Pitta · AI/ML Researcher &amp; Software Engineer">
+<meta property="og:description" content="Federated learning research, machine-learning projects and cloud work. Explore my study desk in Sweden.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#17110C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2317110C'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%23F2C230' text-anchor='middle'%3ENP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css?v=desk-2">
+<script>
+  try {
+    var t = localStorage.getItem('np-theme');
+    if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
+    document.documentElement.dataset.theme = t;
+  } catch (e) { document.documentElement.dataset.theme = 'day'; }
+</script>
 </head>
-<body class="theme-home">
-    <section class="academy-gate" id="academyGate" aria-label="Nevermore Academy Entrance">
-        <!-- Cinematic Castle, Moonlight, Fog & Purple Lighting -->
-        <div class="sky-elements" aria-hidden="true">
-            <div class="gothic-moon"></div>
-            <div class="moon-halo"></div>
-            
-            <!-- Castle Architecture Silhouette -->
-            <svg class="castle-architecture" viewBox="0 0 1440 600" preserveAspectRatio="none">
-                <defs>
-                    <linearGradient id="castleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stop-color="#160e24"/>
-                        <stop offset="50%" stop-color="#0e0917"/>
-                        <stop offset="100%" stop-color="#07050b"/>
-                    </linearGradient>
-                    <radialGradient id="windowGlow" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" stop-color="#eed8ff" stop-opacity="0.9"/>
-                        <stop offset="60%" stop-color="#9d4edd" stop-opacity="0.5"/>
-                        <stop offset="100%" stop-color="#491375" stop-opacity="0"/>
-                    </radialGradient>
-                </defs>
-                <!-- Distant Spires -->
-                <polygon points="120,380 150,160 180,380" fill="#1b122c"/>
-                <polygon points="260,390 285,190 310,390" fill="#1b122c"/>
-                <polygon points="1120,400 1145,180 1170,400" fill="#1b122c"/>
-                <polygon points="1280,380 1310,140 1340,380" fill="#1b122c"/>
-                
-                <!-- Main Castle Silhouette -->
-                <path d="M0,600 L0,380 L80,380 L80,310 L90,290 L110,290 L120,310 L120,380 
-                         L220,380 L220,240 L260,200 L300,240 L300,380 
-                         L420,380 L420,330 L440,310 L500,310 L520,330 L520,380
-                         L600,380 L600,220 L660,140 L720,220 L720,380
-                         L820,380 L820,260 L870,200 L920,260 L920,380
-                         L1020,380 L1020,320 L1070,320 L1070,380
-                         L1180,380 L1180,230 L1220,180 L1260,230 L1260,380
-                         L1360,380 L1360,300 L1380,280 L1400,300 L1400,380 L1440,380 L1440,600 Z" 
-                      fill="url(#castleGrad)"/>
-                
-                <!-- Lit Gothic Cathedral Windows in Towers -->
-                <path d="M255,270 Q260,250 265,270 L265,295 L255,295 Z" fill="url(#windowGlow)"/>
-                <path d="M652,210 Q660,185 668,210 L668,245 L652,245 Z" fill="url(#windowGlow)"/>
-                <path d="M863,280 Q870,260 877,280 L877,305 L863,305 Z" fill="url(#windowGlow)"/>
-                <path d="M1214,260 Q1220,240 1226,260 L1226,285 L1214,285 Z" fill="url(#windowGlow)"/>
-            </svg>
+<body>
+<a class="skip" href="#about">Skip to content</a>
 
-            <!-- Rolling Volumetric Fog Layers -->
-            <div class="fog-layer fog-back"></div>
-            <div class="fog-layer fog-front"></div>
-        </div>
+<header class="topbar" id="top">
+  <a class="brand" href="#top" aria-label="Back to the desk">
+    <span class="brand-mark" aria-hidden="true">NP</span>
+    <span class="brand-name">Pujitha Pitta</span>
+  </a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#research">Research</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="topbar-right">
+    <span class="clock" aria-label="Local time in Sweden"><span class="clock-dot" aria-hidden="true"></span>SWEDEN <span id="clock">--:--</span></span>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch to night mode" aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-sun" d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.66-5.66 1.41-1.41M4.93 19.07l1.41-1.41m0-11.32L4.93 4.93m14.14 14.14-1.41-1.41M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/><path class="i-moon" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+    </button>
+    <a class="btn btn-small" href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
+    <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Sections (mobile)" hidden>
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+    <a href="#research">Research</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+  </nav>
+</header>
 
-        <!-- Flying Raven Silhouettes -->
-        <svg class="raven-flight" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true">
-            <g class="raven raven-one">
-                <path d="M0,25 C15,8 32,7 50,22 C62,10 78,8 95,15 C85,27 73,34 56,34 C47,46 36,55 20,59 L27,36 C18,40 9,35 0,25 Z"/>
-            </g>
-            <g class="raven raven-two">
-                <path d="M0,25 C15,8 32,7 50,22 C62,10 78,8 95,15 C85,27 73,34 56,34 C47,46 36,55 20,59 L27,36 C18,40 9,35 0,25 Z"/>
-            </g>
-            <g class="raven raven-three">
-                <path d="M0,25 C15,8 32,7 50,22 C62,10 78,8 95,15 C85,27 73,34 56,34 C47,46 36,55 20,59 L27,36 C18,40 9,35 0,25 Z"/>
-            </g>
-        </svg>
-
-        <!-- Ambient Dust & Silver Embers -->
-        <span class="academy-particles" aria-hidden="true"></span>
-
-        <!-- Interactive 3D Wrought-Iron Entrance Gates -->
-        <div class="wrought-iron-gates" aria-hidden="true">
-            <div class="gate-wing gate-left" id="gateLeft">
-                <div class="gate-bars">
-                    <span class="bar bar-spear"></span>
-                    <span class="bar bar-spear"></span>
-                    <span class="bar bar-spear"></span>
-                    <span class="bar bar-spear"></span>
-                    <span class="bar bar-spear"></span>
-                    <span class="bar bar-spear"></span>
-                    <span class="gate-scroll scroll-top"></span>
-                    <span class="gate-scroll scroll-mid"></span>
-                </div>
-            </div>
-            <div class="gate-wing gate-right" id="gateRight">
-                <div class="gate-bars">
-                    <span class="bar bar-spear"></span>
-                    <span class="bar bar-spear"></span>
-                    <span class="bar bar-spear"></span>
-                    <span class="bar bar-spear"></span>
-                    <span class="bar bar-spear"></span>
-                    <span class="bar bar-spear"></span>
-                    <span class="gate-scroll scroll-top"></span>
-                    <span class="gate-scroll scroll-mid"></span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Academy Centerpiece / Entrance Heading -->
-        <div class="academy-title">
-            <!-- Original Artwork: Nevermore Academy Emblem -->
-            <div class="emblem-container" title="Nevermore Academy Emblem">
-                <svg class="academy-emblem" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <!-- Outer Crest Shield -->
-                    <path d="M50,4 L92,20 L92,68 C92,94 50,116 50,116 C50,116 8,94 8,68 L8,20 Z" 
-                          fill="#171220" stroke="#cbb4dd" stroke-width="2.5"/>
-                    <path d="M50,10 L86,24 L86,66 C86,88 50,108 50,108 C50,108 14,88 14,66 L14,24 Z" 
-                          fill="none" stroke="#724e8e" stroke-width="1.2" stroke-dasharray="2,2"/>
-                    <!-- Crescent Moon at Top -->
-                    <path d="M50,17 C54,17 58,19 60,22 C56,23 53,26 53,30 C53,34 56,37 60,38 C58,41 54,43 50,43 C42.8,43 37,37.2 37,30 C37,22.8 42.8,17 50,17 Z" 
-                          fill="#e4d7f5"/>
-                    <!-- The Nevermore Raven Silhouette -->
-                    <path d="M50,38 C54,43 62,48 74,47 C68,52 61,54 55,56 C68,58 76,65 82,75 C73,72 65,72 58,74 C62,81 65,88 64,95 C57,89 53,83 50,78 C47,83 43,89 36,95 C35,88 38,81 42,74 C35,72 27,72 18,75 C24,65 32,58 45,56 C39,54 32,52 26,47 C38,48 46,43 50,38 Z" 
-                          fill="#e4d7f5"/>
-                    <!-- Ribbon Banner -->
-                    <path d="M20,100 L50,96 L80,100 L74,106 L50,102 L26,106 Z" fill="#422557" stroke="#cbb4dd" stroke-width="1"/>
-                    <text x="50" y="102" fill="#fff" font-size="4.2" font-family="'Cinzel', serif" font-weight="bold" text-anchor="middle" letter-spacing="0.5">NEVERMORE</text>
-                </svg>
-            </div>
-
-
-            <!-- Name in Elegant Gothic Typography -->
-            <h1 class="academy-name">Naga Pujitha Pitta</h1>
-
-            <!-- Professional Title -->
-            <p class="academy-role">
-                <span class="role-symbol">✦</span>
-                <span class="role-label">Software Developer</span>
-                <span class="role-symbol">✦</span>
-            </p>
-
-            <p class="academy-degree-meta">M.Sc. in Computer Science · Blekinge Institute of Technology, Sweden</p>
-
-            <!-- Interactive "Enter My World" Button -->
-            <div class="entrance-action">
-                <a class="enter-world-button" id="enterWorld" href="#portfolioWorld">
-                    <span class="btn-icon">🗝</span>
-                    <span class="btn-text">Enter My World</span>
-                    <span class="btn-glow" aria-hidden="true"></span>
-                </a>
-                <span class="entrance-hint">Unlock gates to explore projects, research &amp; background</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ====================================================================
-         PORTFOLIO WORLD (INNER SECTIONS)
-         ==================================================================== -->
-    <div class="portfolio-world" id="portfolioWorld">
-    <div class="background-shapes" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="glow-cursor" aria-hidden="true"></div>
-    <header class="hero" id="home"><div class="hero-content"><p class="hero-subtitle"><span id="roleText">Software Developer</span><span class="typing-cursor">|</span></p></div><span class="hero-frame" aria-hidden="true"></span></header>
-    <nav aria-label="Main navigation"><a href="index.html">Home</a><span class="nav-dot">•</span><a href="experience.html">Experience</a><span class="nav-dot">•</span><a href="projects.html">Projects</a><span class="nav-dot">•</span><a href="publications.html">Publications</a></nav>
-    <main>        <section class="about section" id="about">
-            <div class="about-heading">
-                <div class="portrait-frame"><img class="profile-photo" src="images/profile.jpeg" alt="Naga Pujitha Pitta" onerror="this.hidden=true;"></div>
-                <div><h2>Hey — I'm Pujitha.</h2><p>I am a Computer Science graduate from Blekinge Institute of Technology, Sweden.</p></div>
-            </div>
-            <p>I am interested in full-stack development, artificial intelligence, and machine learning. I enjoy building applications, solving technical problems, and learning new technologies.</p>
-            <p>My work includes cloud-based web applications, machine learning projects, and research into reliable federated learning models.</p>
-            <hr><h3>Education</h3><p><strong>Master of Science in Computer Science</strong><br>Blekinge Institute of Technology · Sweden</p>
-            <hr>
-            <div class="skills-showcase">
-                <div class="skills-showcase-heading"><div><span class="skills-kicker">STACK / INDEX 012</span><h3>Technical Skills</h3></div><span class="skills-orbit" aria-hidden="true">✳</span></div>
-                <div class="skills-board" aria-label="Technical skills">
-                    <div class="skill-tile" data-group="code"><span class="skill-symbol">Py</span><span class="skill-name">Python</span><span class="skill-kind">LANGUAGE</span></div>
-                    <div class="skill-tile" data-group="code"><span class="skill-symbol">Ja</span><span class="skill-name">Java</span><span class="skill-kind">LANGUAGE</span></div>
-                    <div class="skill-tile" data-group="code"><span class="skill-symbol">JS</span><span class="skill-name">JavaScript</span><span class="skill-kind">LANGUAGE</span></div>
-                    <div class="skill-tile" data-group="code"><span class="skill-symbol">SQL</span><span class="skill-name">SQL</span><span class="skill-kind">LANGUAGE</span></div>
-                    <div class="skill-tile" data-group="web"><span class="skill-symbol">&lt;/&gt;</span><span class="skill-name">HTML</span><span class="skill-kind">WEB</span></div>
-                    <div class="skill-tile" data-group="web"><span class="skill-symbol">#</span><span class="skill-name">CSS</span><span class="skill-kind">WEB</span></div>
-                    <div class="skill-tile" data-group="web"><span class="skill-symbol">Fl</span><span class="skill-name">Flask</span><span class="skill-kind">WEB</span></div>
-                    <div class="skill-tile" data-group="ai"><span class="skill-symbol">ML</span><span class="skill-name">Scikit-learn</span><span class="skill-kind">AI / DATA</span></div>
-                    <div class="skill-tile" data-group="ai"><span class="skill-symbol">Tf</span><span class="skill-name">TensorFlow</span><span class="skill-kind">AI / DATA</span></div>
-                    <div class="skill-tile" data-group="ai"><span class="skill-symbol">Pd</span><span class="skill-name">Pandas</span><span class="skill-kind">AI / DATA</span></div>
-                    <div class="skill-tile" data-group="ai"><span class="skill-symbol">Np</span><span class="skill-name">NumPy</span><span class="skill-kind">AI / DATA</span></div>
-                    <div class="skill-tile" data-group="cloud"><span class="skill-symbol">☁</span><span class="skill-name">AWS</span><span class="skill-kind">CLOUD</span></div>
-                </div>
-                <div class="skills-legend"><span><i data-group="code"></i>Code</span><span><i data-group="web"></i>Web</span><span><i data-group="ai"></i>AI &amp; Data</span><span><i data-group="cloud"></i>Cloud</span></div>
-            </div>
-        </section>
-        <section class="reference-links" aria-label="Resume and contact links">
-            <p class="resume-link"><a href="resume.pdf" target="_blank" rel="noopener noreferrer">View résumé ↗</a></p>
-                <p class="reference-social-links"><a href="https://linkedin.com/in/naga-pujitha-pitta-bb8784255" target="_blank" rel="noopener noreferrer">LinkedIn</a><span>·</span><a href="https://github.com/Pujitha-pitta" target="_blank" rel="noopener noreferrer">GitHub</a><span>·</span><a href="mailto:nagapujitha456@gmail.com">Email</a></p>
-        </section>
-        <p class="section-bottom-link page-next"><a href="experience.html">〈 My Experience 〉</a></p></main>
-    <footer><p>© <span id="currentYear"></span> Naga Pujitha Pitta</p></footer>
+<!-- ============ HERO: THE STUDY DESK ============ -->
+<section class="hero" aria-label="Introduction">
+  <div class="hero-intro-mobile">
+    <p class="eyebrow">Hej! I'm</p>
+    <p class="m-name">Naga Pujitha Pitta</p>
+    <p class="m-role">AI/ML Researcher &amp; Software Engineer · Sweden</p>
+    <div class="card-actions">
+      <a class="btn" href="#projects">View my work</a>
+      <a class="btn btn-ghost" href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
     </div>
-    <!-- Entrance & Interactive Scripts -->
-    <script src="script.js"></script>
-    <script>
-        // Smooth entrance gate trigger & transition
-        const enterBtn = document.getElementById('enterWorld');
-        const gateLeft = document.getElementById('gateLeft');
-        const gateRight = document.getElementById('gateRight');
-        const academyGate = document.getElementById('academyGate');
+    <p class="m-hint">Tap anything on my desk to open it.</p>
+  </div>
 
-        if (enterBtn) {
-            enterBtn.addEventListener('click', function(e) {
-                // Animate wrought-iron gate swing
-                if (gateLeft && gateRight) {
-                    gateLeft.classList.add('swing-open');
-                    gateRight.classList.add('swing-open');
-                }
-                if (academyGate) {
-                    academyGate.classList.add('gate-unlocking');
-                }
-            });
-        }
+  <div class="desk" id="desk">
+    <div class="lamp-glow" aria-hidden="true"></div>
+    <div class="stage" id="stage">
 
-        // Set current year
-        const yr = document.getElementById('currentYear');
-        if (yr) yr.textContent = new Date().getFullYear();
-    </script>
+      <!-- Window -->
+      <div class="obj obj-window" data-id="window" data-x="1080" data-y="24" aria-hidden="true">
+        <div class="window-frame">
+          <div class="window-view">
+            <span class="aurora a1"></span><span class="aurora a2"></span>
+            <span class="star s1"></span><span class="star s2"></span><span class="star s3"></span><span class="star s4"></span>
+            <span class="moon"></span>
+            <span class="hill h1"></span><span class="hill h2"></span>
+            <span class="pine p1"></span><span class="pine p2"></span><span class="pine p3"></span>
+            <span class="cottage"><span class="roof"></span><span class="lit"></span><span class="chimney"></span></span>
+            <span class="smoke"><i></i><i></i><i></i></span>
+            <div class="snow" id="snow"></div>
+            <span class="mullion"></span>
+          </div>
+        </div>
+        <span class="window-sill"></span>
+      </div>
+
+      <!-- Lamp -->
+      <button class="obj obj-lamp" type="button" data-id="lamp" data-x="34" data-y="26" data-action="lamp" aria-label="Desk lamp: switch night mode">
+        <span class="lamp-base"><span class="lamp-bulb"></span></span>
+        <span class="tag tag-dark">LAMP · NIGHT MODE</span>
+      </button>
+
+      <!-- Coffee -->
+      <div class="obj obj-mug" data-id="mug" data-x="236" data-y="60" aria-hidden="true">
+        <span class="steam"><i></i><i></i><i></i></span>
+        <span class="mug-handle"></span>
+        <span class="mug"><span class="coffee"><span class="crema"></span></span></span>
+        <span class="fika">fika</span>
+      </div>
+
+      <!-- Business card (desktop intro) -->
+      <div class="obj obj-card" data-id="card" data-x="452" data-y="30">
+        <p class="card-kicker">HEJ! I'M</p>
+        <h1 class="card-name">Naga Pujitha Pitta</h1>
+        <p class="card-role"><span id="typed">AI/ML Researcher &amp; Software Engineer</span><span class="caret" aria-hidden="true"></span></p>
+        <p class="card-meta">M.Sc. Computer Science · Blekinge Institute of Technology · Karlskrona, Sweden</p>
+        <p class="card-tip">Tip: drag things around, and click any object on the desk to open it.</p>
+        <div class="card-actions">
+          <a class="btn" href="#projects" data-nodrag>View my work</a>
+          <a class="btn btn-ghost" href="resume.pdf" target="_blank" rel="noopener" data-nodrag>Download résumé</a>
+        </div>
+      </div>
+
+      <!-- Notebook → About -->
+      <button class="obj obj-notebook" type="button" data-id="notebook" data-x="58" data-y="296" data-open="about" aria-label="Notebook: open About me">
+        <span class="rings" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="hand h-title">About me</span>
+        <span class="hand">Hej, I'm Pujitha!</span>
+        <span class="hand">M.Sc. Computer Science</span>
+        <span class="hand">Blekinge Inst. of Tech.</span>
+        <span class="hand">♥ ML, cloud &amp; building</span>
+        <span class="tag">ABOUT · OPEN ↗</span>
+      </button>
+
+      <!-- Laptop → Projects -->
+      <button class="obj obj-laptop" type="button" data-id="laptop" data-x="430" data-y="330" data-open="projects" aria-label="Laptop: open Projects">
+        <span class="laptop-screen">
+          <span class="term">
+            <span class="term-bar"><i></i><i></i><i></i><b>~/pujitha/projects</b></span>
+            <span class="term-body" id="termBody" aria-hidden="true"></span>
+          </span>
+        </span>
+        <span class="laptop-base"><span class="keys"></span><span class="tag">PROJECTS · OPEN ↗</span></span>
+      </button>
+
+      <!-- Sticky notes → Skills -->
+      <button class="obj obj-sticky" type="button" data-id="sticky" data-x="960" data-y="326" data-open="skills" aria-label="Sticky notes: open Skills">
+        <span class="sticky s-back" aria-hidden="true"></span>
+        <span class="sticky s-front">
+          <span class="hand h-title">Skills</span>
+          <span class="hand">Python · ML</span>
+          <span class="hand">AWS · Flutter</span>
+          <span class="hand">STRIDE · GQM</span>
+          <span class="tag">SKILLS ↗</span>
+        </span>
+      </button>
+
+      <!-- Paper → Research -->
+      <button class="obj obj-paper" type="button" data-id="paper" data-x="1116" data-y="330" data-open="research" aria-label="Research paper: open Research">
+        <span class="clip" aria-hidden="true"></span>
+        <span class="paper-kicker">MASTER'S THESIS</span>
+        <span class="paper-title">A Federated Learning Approach for Reliable Diabetes Prediction</span>
+        <span class="paper-author">N. P. Pitta · BTH</span>
+        <span class="lines" aria-hidden="true"><i></i><i class="hl"></i><i></i><i class="short"></i></span>
+        <span class="mini-fed" aria-hidden="true">
+          <svg viewBox="0 0 220 70"><g class="fed-links"><line x1="30" y1="55" x2="110" y2="15"/><line x1="110" y1="55" x2="110" y2="15"/><line x1="190" y1="55" x2="110" y2="15"/></g><circle class="fed-hub" cx="110" cy="15" r="9"/><circle class="fed-node" cx="30" cy="55" r="7"/><circle class="fed-node" cx="110" cy="55" r="7"/><circle class="fed-node" cx="190" cy="55" r="7"/><circle class="fed-pulse p1" r="3.5"/><circle class="fed-pulse p2" r="3.5"/><circle class="fed-pulse p3" r="3.5"/></svg>
+        </span>
+        <span class="tag">RESEARCH · OPEN ↗</span>
+      </button>
+
+      <!-- Badges → Experience -->
+      <button class="obj obj-badges" type="button" data-id="badges" data-x="44" data-y="624" data-open="experience" aria-label="ID badges: open Experience">
+        <span class="lanyard" aria-hidden="true"></span>
+        <span class="badge b1"><span class="b-top"></span><small>2023</small><b>AICTE</b><em>Python Intern</em></span>
+        <span class="badge b2"><span class="b-top"></span><small>2026</small><b>FLY Rank AI</b><em>Machine Learning Intern</em></span>
+        <span class="tag tag-float">EXPERIENCE · OPEN ↗</span>
+      </button>
+
+      <!-- Medal → Experience (award) -->
+      <button class="obj obj-medal" type="button" data-id="medal" data-x="880" data-y="650" data-open="experience" aria-label="Hackathon medal: open Experience">
+        <span class="ribbon r1" aria-hidden="true"></span><span class="ribbon r2" aria-hidden="true"></span>
+        <span class="medal"><b>BUILD</b><small>WINNER · 2026</small><span class="glint" aria-hidden="true"></span></span>
+      </button>
+
+      <!-- Envelope → Contact -->
+      <button class="obj obj-envelope" type="button" data-id="envelope" data-x="1110" data-y="690" data-open="contact" aria-label="Envelope: open Contact">
+        <span class="stamp" aria-hidden="true">✦</span>
+        <span class="hand h-title">Say hej!</span>
+        <span class="hand">to: you, the recruiter</span>
+        <span class="tag">CONTACT · OPEN ↗</span>
+      </button>
+
+      <!-- Plant -->
+      <div class="obj obj-plant" data-id="plant" data-x="392" data-y="728" aria-hidden="true">
+        <span class="pot"></span><i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i><i class="leaf l5"></i>
+      </div>
+
+      <!-- Phone (GitHub) -->
+      <a class="obj obj-phone" data-id="phone" data-x="1010" data-y="540" href="https://github.com/Pujitha-pitta" target="_blank" rel="noopener" aria-label="Phone: open my GitHub profile">
+        <span class="phone-screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg><b>GitHub</b></span>
+      </a>
+
+      
+    </div>
+    <div class="desk-controls">
+      <button type="button" class="chip-btn" id="resetDesk">Tidy the desk</button>
+      <a class="chip-btn" href="#about">Scroll to explore ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS STRIP ============ -->
+<section class="stats" aria-label="At a glance">
+  <div class="wrap stats-grid">
+    <div class="stat reveal"><b data-count="23" id="statProjects">23</b><span>projects, with code or reports</span></div>
+    <div class="stat reveal"><b data-count="2">2</b><span>thesis projects, M.Sc. and B.Tech</span></div>
+    <div class="stat reveal"><b data-count="2">2</b><span>internships in AI and Python</span></div>
+    <div class="stat reveal"><b data-count="1">1</b><span>hackathon won, BUILD 2026</span></div>
+  </div>
+</section>
+
+<main>
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="wrap about">
+      <div class="about-photo reveal">
+        <figure class="polaroid">
+          <img src="images/profile.jpeg" alt="Portrait of Naga Pujitha Pitta" loading="lazy">
+          <figcaption>Pujitha</figcaption>
+        </figure>
+        <span class="tape" aria-hidden="true"></span>
+        <p class="loc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Karlskrona, Sweden</p>
+      </div>
+      <div class="about-text">
+        <p class="eyebrow reveal">01 · About</p>
+        <h2 class="reveal">Hej! I'm Pujitha, and I love turning data into software people can rely on.</h2>
+        <p class="lead reveal">I'm a computer science graduate student at Blekinge Institute of Technology, living in Karlskrona, Sweden. My focus is software engineering, AI and machine learning, and cloud computing.</p>
+        <p class="reveal">I enjoy the whole journey of a project: understanding the problem, cleaning messy data, building and testing models, and shipping them as reliable applications. I care about AI that is accurate, private and easy to explain, and about code that other people can pick up and maintain.</p>
+        <p class="reveal">Outside my studies I keep building to learn, from web apps and automation workflows to cloud labs and small multiplayer games. I founded a student club and led my college sports team, which taught me teamwork, organising and keeping a group moving towards a goal.</p>
+        <div class="edu reveal">
+          <div class="edu-item"><b>M.Sc. in Computer Science</b><span>Blekinge Institute of Technology · 2024 – 2026</span><small>Focus: software engineering, AI/ML, cloud computing, constitutional AI</small></div>
+          <div class="edu-item"><b>B.Tech in Computer Science</b><span>Blekinge Institute of Technology · 2020 – 2024</span></div>
+        </div>
+        <p class="langs reveal"><b>Languages</b> English (professional) · Swedish (basic, A1)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section section-alt" id="skills">
+    <div class="wrap">
+      <p class="eyebrow reveal">02 · Skills</p>
+      <h2 class="reveal">My technical toolkit</h2>
+      <p class="section-intro reveal">The tools and methods I work with, grouped by area. The number shows how many of my projects use each one. Pick a skill to see them.</p>
+      <div class="skills-grid" id="skillsGrid"></div>
+      <p class="also reveal" id="alsoKnow"></p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="wrap">
+      <p class="eyebrow reveal">03 · Projects</p>
+      <h2 class="reveal">Things I've built</h2>
+      <p class="section-intro reveal">From AI agents and machine-learning models to cloud labs, systems tools and web apps. Each project links to its code on GitHub or its full report.</p>
+      <div class="filters reveal" id="filters" role="group" aria-label="Filter projects"></div>
+      <p class="filter-note" id="filterNote" aria-live="polite"></p>
+      <div class="project-grid" id="projectGrid"></div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="section section-alt" id="research">
+    <div class="wrap">
+      <p class="eyebrow reveal">04 · Research</p>
+      <h2 class="reveal">Research</h2>
+      <div class="research-feature">
+        <figure class="fed-viz reveal">
+          <svg viewBox="0 0 420 300" role="img" aria-label="Federated learning: three hospitals send model updates to a global model and receive the improved model back">
+            <circle class="fv-halo" cx="210" cy="70" r="58"/>
+            <g class="fv-links"><path id="fvA" d="M70 222 L210 70"/><path id="fvB" d="M210 232 L210 70"/><path id="fvC" d="M350 222 L210 70"/></g>
+            <g class="fv-hub"><circle cx="210" cy="70" r="34"/><text x="210" y="66">GLOBAL</text><text x="210" y="81">MODEL</text></g>
+            <g class="fv-client"><rect x="26" y="222" width="88" height="46" rx="10"/><text x="70" y="250">Hospital A</text></g>
+            <g class="fv-client"><rect x="166" y="232" width="88" height="46" rx="10"/><text x="210" y="260">Hospital B</text></g>
+            <g class="fv-client"><rect x="306" y="222" width="88" height="46" rx="10"/><text x="350" y="250">Hospital C</text></g>
+            <circle class="fv-dot fv-up" r="6"><animateMotion dur="3s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#fvA"/></animateMotion></circle>
+            <circle class="fv-dot fv-up" r="6"><animateMotion dur="3s" begin="0.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#fvB"/></animateMotion></circle>
+            <circle class="fv-dot fv-up" r="6"><animateMotion dur="3s" begin="0.8s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#fvC"/></animateMotion></circle>
+            <circle class="fv-dot fv-down" r="6"><animateMotion dur="3s" begin="1.5s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#fvA"/></animateMotion></circle>
+            <circle class="fv-dot fv-down" r="6"><animateMotion dur="3s" begin="1.9s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#fvB"/></animateMotion></circle>
+            <circle class="fv-dot fv-down" r="6"><animateMotion dur="3s" begin="2.3s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#fvC"/></animateMotion></circle>
+          </svg>
+          <figcaption class="fv-legend"><span><i class="lg-up"></i>local model updates</span><span><i class="lg-down"></i>improved global model</span></figcaption>
+        </figure>
+        <div id="researchList" class="research-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="wrap">
+      <p class="eyebrow reveal">05 · Experience</p>
+      <h2 class="reveal">Experience and recognition</h2>
+      <div class="exp-layout">
+        <ol class="timeline" id="timeline"></ol>
+        <aside class="award reveal" id="award" aria-label="Award"></aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="wrap">
+      <div class="letter reveal">
+        <span class="letter-stamp" aria-hidden="true">✦</span>
+        <p class="eyebrow">06 · Contact</p>
+        <h2>Let's build something together.</h2>
+        <p class="lead">I'm open to roles in machine learning, AI research and software engineering. The fastest way to reach me is email.</p>
+        <div class="contact-actions">
+          <a class="btn btn-big" href="mailto:nagapujitha456@gmail.com">nagapujitha456@gmail.com</a>
+          <button class="btn btn-ghost" type="button" id="copyEmail">Copy email</button>
+        </div>
+        <ul class="contact-links">
+          <li><a href="https://linkedin.com/in/naga-pujitha-pitta-bb8784255" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://github.com/Pujitha-pitta" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF) ↗</a></li>
+        </ul>
+        <p class="sign">Tack så mycket! · Pujitha</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© <span id="year">2026</span> Naga Pujitha Pitta · Karlskrona, Sweden</p>
+    <a href="#top">Back to the desk ↑</a>
+  </div>
+</footer>
+
+<!-- Opened-object view -->
+<dialog class="viewer" id="viewer" aria-labelledby="viewerTitle">
+  <div class="viewer-inner" id="viewerInner"></div>
+  <button class="viewer-close" type="button" id="viewerClose" aria-label="Close and go back to the desk">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/js/data.js?v=desk-2"></script>
+<script src="assets/js/main.js?v=desk-2"></script>
 </body>
 </html>
-
-
-
-
-
