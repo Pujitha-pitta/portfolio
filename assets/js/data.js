@@ -7,7 +7,7 @@ window.PORTFOLIO = {
   email: 'nagapujitha456@gmail.com',
   linkedin: 'https://linkedin.com/in/naga-pujitha-pitta-bb8784255',
   github: 'https://github.com/Pujitha-pitta',
-  resume: 'resume.pdf',
+  resume: 'Naga_Pujitha_Pitta_Resume.pdf?v=3',
 
   /* Project categories (filters). Colors live in styles.css as --t-<key>. */
   tracks: {
