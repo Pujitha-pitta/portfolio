@@ -52,13 +52,6 @@ window.PORTFOLIO = {
       code: 'https://github.com/Pujitha-pitta/trendforge-ai-dataset-builder'
     },
     {
-      id: 'flyrank', folder: 'Flyrank-ML-internship', track: 'ml',
-      title: 'FlyRank Machine Learning internship: search ranking',
-      desc: 'Internship work on applied search intelligence: analysing anonymised Google Search ranking data in Jupyter and DuckDB to find what drives discoverability, and building ranking models you can read as rules.',
-      skills: ['Python', 'Jupyter', 'DuckDB', 'Search analytics'],
-      code: 'https://github.com/Pujitha-pitta/Flyrank-ML-internship'
-    },
-    {
       id: 'terraform', folder: 'terraform-kubernetes-ops-lab', track: 'cloud',
       title: 'Terraform & Kubernetes ops lab',
       desc: 'A local Terraform and Kubernetes lab for deploying, scaling and monitoring a containerised Python app with Docker Desktop, without AWS costs.',
@@ -256,14 +249,14 @@ window.PORTFOLIO = {
       ['Rule learning (RIPPER, CN2)', ['credit']]
     ]},
     { group: 'Data & forecasting', items: [
-      ['Python', ['radar', 'calmcharge', 'premier', 'trendforge', 'flyrank', 'network', 'raid5', 'crypto', 'accident', 'stock', 'wine', 'spam', 'trustfed']],
+      ['Python', ['radar', 'calmcharge', 'premier', 'trendforge', 'fly', 'network', 'raid5', 'crypto', 'accident', 'stock', 'wine', 'spam', 'trustfed']],
       ['Time-series forecasting (ARIMA, LSTM)', ['calmcharge', 'stock', 'crypto', 'ev']],
       ['Data cleaning & quality checks', ['calmcharge', 'premier', 'trendforge']],
       ['Feature engineering', ['premier', 'calmcharge', 'accident', 'fly']],
       ['Leakage-aware evaluation', ['premier', 'calmcharge', 'wine', 'spam']],
       ['Class imbalance (SMOTE)', ['wine', 'accident']],
       ['Pandas & NumPy', ['accident', 'trustfed']],
-      ['DuckDB & Jupyter', ['flyrank']],
+      ['DuckDB & Jupyter', ['fly']],
       ['CRISP-DM', ['stock']]
     ]},
     { group: 'AI agents & LLMs', items: [
