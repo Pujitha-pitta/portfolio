@@ -12,6 +12,7 @@ window.PORTFOLIO = {
   /* Project categories (filters). Colors live in styles.css as --t-<key>. */
   tracks: {
     ml: { label: 'Machine learning' },
+    data: { label: 'Data engineering' },
     ai: { label: 'AI apps & agents' },
     cloud: { label: 'Cloud & DevOps' },
     infra: { label: 'Systems & networking' },
@@ -31,11 +32,21 @@ window.PORTFOLIO = {
       demo: 'https://radar-for-blue-science-park-8msd.vercel.app'
     },
     {
+      id: 'jobmarket', folder: 'job-market-skills-analyzer', track: 'data', featured: 'Live data app',
+      title: 'Job Market Skills Analyzer',
+      desc: 'Answers "which skills should I learn to get a job?" from about 2,700 live Swedish Data/IT job ads (Arbetsförmedlingen’s JobTech API), refreshed every morning. Ads are loaded into Snowflake, cleaned and modelled with dbt (staging, incremental skill extraction, star schema and career marts), and explored in a Streamlit dashboard that suggests your next three skills and ranks real ads by how well you match.',
+      skills: ['Snowflake', 'dbt', 'SQL', 'Streamlit', 'Python', 'REST APIs', 'GitHub Actions'],
+      code: 'https://github.com/Pujitha-pitta/job-market-skills-analyzer',
+      demo: 'https://job-market-skills-analyzer.streamlit.app',
+      link: 'https://pujitha-pitta.github.io/job-market-skills-analyzer/dbt-docs/', linkLabel: 'dbt docs & lineage'
+    },
+    {
       id: 'calmcharge', folder: 'calmcharge', track: 'ml',
       title: 'CalmCharge: EV charging planner',
       desc: 'Follows Swedish SE4 electricity prices from download to a charging plan: data-quality checks, weather and calendar features, ridge regression with expanding-window validation, and a cheapest-hour charging planner. One-hour-ahead error is 14.4 EUR/MWh (MAE), against 40 for a same-hour-yesterday baseline.',
       skills: ['Python', 'Ridge regression', 'Time series', 'Data quality', 'CI'],
-      code: 'https://github.com/Pujitha-pitta/calmcharge'
+      code: 'https://github.com/Pujitha-pitta/calmcharge',
+      demo: 'https://calmcharge.vercel.app'
     },
     {
       id: 'premier', folder: 'premier-league-match-predictor', track: 'ml',
@@ -249,7 +260,7 @@ window.PORTFOLIO = {
       ['Rule learning (RIPPER, CN2)', ['credit']]
     ]},
     { group: 'Data & forecasting', items: [
-      ['Python', ['radar', 'calmcharge', 'premier', 'trendforge', 'fly', 'network', 'raid5', 'crypto', 'accident', 'stock', 'wine', 'spam', 'trustfed']],
+      ['Python', ['radar', 'jobmarket', 'calmcharge', 'premier', 'trendforge', 'fly', 'network', 'raid5', 'crypto', 'accident', 'stock', 'wine', 'spam', 'trustfed']],
       ['Time-series forecasting (ARIMA, LSTM)', ['calmcharge', 'stock', 'crypto', 'ev']],
       ['Data cleaning & quality checks', ['calmcharge', 'premier', 'trendforge']],
       ['Feature engineering', ['premier', 'calmcharge', 'accident', 'fly']],
@@ -257,7 +268,9 @@ window.PORTFOLIO = {
       ['Class imbalance (SMOTE)', ['wine', 'accident']],
       ['Pandas & NumPy', ['accident', 'trustfed']],
       ['DuckDB & Jupyter', ['fly']],
-      ['CRISP-DM', ['stock']]
+      ['CRISP-DM', ['stock']],
+      ['Snowflake & dbt (SQL modelling)', ['jobmarket']],
+      ['Streamlit dashboards', ['jobmarket']]
     ]},
     { group: 'AI agents & LLMs', items: [
       ['LLM agents', ['radar', 'n8n']],
@@ -274,16 +287,16 @@ window.PORTFOLIO = {
       ['Kubernetes', ['terraform']],
       ['Docker', ['terraform']],
       ['Serverless (Vercel, Netlify, Cloudflare)', ['radar', 'haunted']],
-      ['CI & Git/GitHub', ['calmcharge', 'radar', 'trustfed']],
+      ['CI & Git/GitHub', ['jobmarket', 'calmcharge', 'radar', 'trustfed']],
       ['Apache web server', ['aws']]
     ]},
     { group: 'Web & app development', items: [
       ['JavaScript', ['apple', 'haunted', 'fridge']],
       ['TypeScript & Next.js', ['radar', 'haunted']],
-      ['FastAPI & REST APIs', ['radar']],
+      ['FastAPI & REST APIs', ['radar', 'jobmarket']],
       ['HTML & CSS', ['apple', 'fridge']],
       ['Real-time multiplayer sync', ['haunted']],
-      ['Data visualisation', ['apple', 'calmcharge']],
+      ['Data visualisation', ['apple', 'calmcharge', 'jobmarket']],
       ['Flutter', ['t2i']]
     ]},
     { group: 'Systems, networking & security', items: [
@@ -298,6 +311,6 @@ window.PORTFOLIO = {
     ]}
   ],
 
-  alsoKnow: ['C++', 'SQL', 'PyTorch', 'AWS RDS & S3', 'OOP'],
+  alsoKnow: ['C++', 'PyTorch', 'AWS RDS & S3', 'OOP'],
   languages: ['English (professional)', 'Swedish (basic, A1)']
 };

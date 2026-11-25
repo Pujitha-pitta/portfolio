@@ -13,7 +13,7 @@
     set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) { /* storage unavailable */ } }
   };
 
-  var trackColor = {}, trackColorDark = { ml: '#6FCF97', ai: '#F2C46D', cloud: '#7FB6F0', infra: '#8FD3C1', web: '#F5A3C7', security: '#F08A6E', se: '#C3B6FF' };
+  var trackColor = {}, trackColorDark = { ml: '#6FCF97', data: '#9AA8F5', ai: '#F2C46D', cloud: '#7FB6F0', infra: '#8FD3C1', web: '#F5A3C7', security: '#F08A6E', se: '#C3B6FF' };
   Object.keys(D.tracks).forEach(function (k) { trackColor[k] = 'var(--t-' + k + ')'; });
   var external = function (href) { return /^https?:/.test(href) || /\.(pdf|htm|apk)$/i.test(href.split('?')[0]); };
   var linkAttrs = function (href) { return external(href) ? ' target="_blank" rel="noopener"' : ''; };
@@ -282,7 +282,7 @@
   }
 
   /* ---- A project book, opened ---- */
-  var bookColor = { ml: '#2F5D46', ai: '#8A5A12', cloud: '#23527A', infra: '#1F5F5A', web: '#8C2F5F', security: '#8E3326', se: '#5C4585' };
+  var bookColor = { ml: '#2F5D46', data: '#2E3A78', ai: '#8A5A12', cloud: '#23527A', infra: '#1F5F5A', web: '#8C2F5F', security: '#8E3326', se: '#5C4585' };
   var linkIcon = {
     code: '<path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" fill="currentColor" stroke="none"/>',
     demo: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',

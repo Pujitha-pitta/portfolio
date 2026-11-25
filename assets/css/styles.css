@@ -32,6 +32,8 @@
   --t-ai: #A0620C;
   --t-infra: #1F7A74;
   --t-web: #B03A78;
+  --t-data: #3E4FA3;
+  --t-security: var(--t-sec);
 
   --f-display: 'Fraunces', Georgia, serif;
   --f-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -70,6 +72,7 @@
   --t-ai: #F2C46D;
   --t-infra: #8FD3C1;
   --t-web: #F5A3C7;
+  --t-data: #9AA8F5;
   color-scheme: dark;
 }
 
